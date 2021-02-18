@@ -13,3 +13,13 @@ C:\Users\Thijs Otter\Desktop\INholland\Project Databases\2018-2019\Someren1819\S
 C:\Users\Thijs Otter\Desktop\INholland\Project Databases\2018-2019\Someren1819\SomerenDAL\bin\Debug\SomerenModel.dll
 C:\Users\Thijs Otter\Desktop\INholland\Project Databases\2018-2019\Someren1819\SomerenDAL\bin\Debug\SomerenModel.pdb
 C:\Users\Thijs Otter\Desktop\INholland\Project Databases\2018-2019\Someren1819\SomerenDAL\bin\Debug\SomerenDAL.dll.config
+C:\Users\Bruno\Workspace\visualStudioProjects\uni\year1.3\project\projectYear1.3\SomerenDAL\bin\Debug\SomerenDAL.dll.config
+C:\Users\Bruno\Workspace\visualStudioProjects\uni\year1.3\project\projectYear1.3\SomerenDAL\bin\Debug\SomerenDAL.dll
+C:\Users\Bruno\Workspace\visualStudioProjects\uni\year1.3\project\projectYear1.3\SomerenDAL\bin\Debug\SomerenDAL.pdb
+C:\Users\Bruno\Workspace\visualStudioProjects\uni\year1.3\project\projectYear1.3\SomerenDAL\bin\Debug\SomerenModel.dll
+C:\Users\Bruno\Workspace\visualStudioProjects\uni\year1.3\project\projectYear1.3\SomerenDAL\bin\Debug\SomerenModel.pdb
+C:\Users\Bruno\Workspace\visualStudioProjects\uni\year1.3\project\projectYear1.3\SomerenDAL\obj\Debug\SomerenDAL.csprojAssemblyReference.cache
+C:\Users\Bruno\Workspace\visualStudioProjects\uni\year1.3\project\projectYear1.3\SomerenDAL\obj\Debug\SomerenDAL.csproj.CoreCompileInputs.cache
+C:\Users\Bruno\Workspace\visualStudioProjects\uni\year1.3\project\projectYear1.3\SomerenDAL\obj\Debug\SomerenDAL.csproj.CopyComplete
+C:\Users\Bruno\Workspace\visualStudioProjects\uni\year1.3\project\projectYear1.3\SomerenDAL\obj\Debug\SomerenDAL.dll
+C:\Users\Bruno\Workspace\visualStudioProjects\uni\year1.3\project\projectYear1.3\SomerenDAL\obj\Debug\SomerenDAL.pdb
