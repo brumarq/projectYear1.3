@@ -28,3 +28,4 @@ C:\Users\Bruno\Workspace\visualStudioProjects\uni\year1.3\project\projectYear1.3
 C:\Users\Bruno\Workspace\visualStudioProjects\uni\year1.3\project\projectYear1.3\SomerenLogic\obj\Debug\SomerenLogic.csproj.CopyComplete
 C:\Users\Bruno\Workspace\visualStudioProjects\uni\year1.3\project\projectYear1.3\SomerenLogic\obj\Debug\SomerenLogic.dll
 C:\Users\Bruno\Workspace\visualStudioProjects\uni\year1.3\project\projectYear1.3\SomerenLogic\obj\Debug\SomerenLogic.pdb
+C:\Users\Bruno\Workspace\visualStudioProjects\uni\year1.3\project\projectYear1.3\SomerenLogic\bin\Debug\App.config

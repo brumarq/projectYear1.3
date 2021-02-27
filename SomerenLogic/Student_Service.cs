@@ -20,18 +20,18 @@ namespace SomerenLogic
                 List<Student> student = student_db.Db_Get_All_Students();
                 return student;
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 // something went wrong connecting to the database, so we will add a fake student to the list to make sure the rest of the application continues working!
                 List<Student> student = new List<Student>();
                 Student a = new Student();
                 a.Name = "Mr. Test Student";
-                a.Number = 474791;
+                a.studentNumber = 474791;
                 a.BirthDate = DateTime.Parse("1990-07-04");
                 student.Add(a);
                 Student b = new Student();
                 b.Name = "Mrs. Test Student";
-                b.Number = 197474;
+                b.studentNumber = 197474;
                 b.BirthDate = DateTime.Parse("2019-03-04");
                 student.Add(b);
                 return student;

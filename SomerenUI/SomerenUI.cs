@@ -56,12 +56,21 @@ namespace SomerenUI
                 // clear the listview before filling it again
                 listViewStudents.Clear();
 
+                listViewStudents.Columns.Add("Student Number", 100);
+                listViewStudents.Columns.Add("First Name", 100);
+                listViewStudents.Columns.Add("Name", 100);
+                listViewStudents.View = View.Details;
+
                 foreach (SomerenModel.Student s in studentList)
                 {
-
-                    ListViewItem li = new ListViewItem(s.Name);
+                    ListViewItem li = new ListViewItem(new string[] { 
+                        s.studentNumber.ToString(), 
+                        s.firstName,
+                        s.Name
+                    });
                     listViewStudents.Items.Add(li);
                 }
+                
             }
         }
 
