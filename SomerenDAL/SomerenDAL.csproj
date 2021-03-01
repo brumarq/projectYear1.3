@@ -42,20 +42,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Base.cs" />
+    <Compile Include="BaseDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Student_DAO.cs" />
+    <Compile Include="StudentDao.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SomerenModel\SomerenModel.csproj">
       <Project>{90a9ed02-35d3-4d84-80e4-458bc835c722}</Project>
       <Name>SomerenModel</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

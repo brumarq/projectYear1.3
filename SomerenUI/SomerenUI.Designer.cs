@@ -28,10 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("test");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SomerenUI));
-            this.studentNumber = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.img_Dashboard = new System.Windows.Forms.PictureBox();
+            this.imgDashboard = new System.Windows.Forms.PictureBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.dashboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dashboardToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -41,33 +39,30 @@
             this.lecturersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.activitiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.roomsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pnl_Dashboard = new System.Windows.Forms.Panel();
+            this.pnlDashboard = new System.Windows.Forms.Panel();
             this.lbl_Dashboard = new System.Windows.Forms.Label();
-            this.pnl_Students = new System.Windows.Forms.Panel();
+            this.pnlStudents = new System.Windows.Forms.Panel();
             this.listViewStudents = new System.Windows.Forms.ListView();
-            this.firstName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lbl_Students = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.img_Dashboard)).BeginInit();
+            this.studentNumber = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.firstName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            ((System.ComponentModel.ISupportInitialize)(this.imgDashboard)).BeginInit();
             this.menuStrip1.SuspendLayout();
-            this.pnl_Dashboard.SuspendLayout();
-            this.pnl_Students.SuspendLayout();
+            this.pnlDashboard.SuspendLayout();
+            this.pnlStudents.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // studentNumber
+            // imgDashboard
             // 
-            this.studentNumber.Text = "ID";
-            this.studentNumber.Width = 154;
-            // 
-            // img_Dashboard
-            // 
-            this.img_Dashboard.Location = new System.Drawing.Point(627, 0);
-            this.img_Dashboard.Name = "img_Dashboard";
-            this.img_Dashboard.Size = new System.Drawing.Size(311, 270);
-            this.img_Dashboard.TabIndex = 0;
-            this.img_Dashboard.TabStop = false;
-            this.img_Dashboard.Click += new System.EventHandler(this.img_Dashboard_Click);
+            this.imgDashboard.Location = new System.Drawing.Point(627, 0);
+            this.imgDashboard.Name = "imgDashboard";
+            this.imgDashboard.Size = new System.Drawing.Size(311, 270);
+            this.imgDashboard.TabIndex = 0;
+            this.imgDashboard.TabStop = false;
+            this.imgDashboard.Click += new System.EventHandler(this.imgDashboard_Click);
             // 
             // menuStrip1
             // 
@@ -138,14 +133,14 @@
             this.roomsToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
             this.roomsToolStripMenuItem.Text = "Rooms";
             // 
-            // pnl_Dashboard
+            // pnlDashboard
             // 
-            this.pnl_Dashboard.Controls.Add(this.lbl_Dashboard);
-            this.pnl_Dashboard.Controls.Add(this.img_Dashboard);
-            this.pnl_Dashboard.Location = new System.Drawing.Point(12, 27);
-            this.pnl_Dashboard.Name = "pnl_Dashboard";
-            this.pnl_Dashboard.Size = new System.Drawing.Size(938, 466);
-            this.pnl_Dashboard.TabIndex = 2;
+            this.pnlDashboard.Controls.Add(this.lbl_Dashboard);
+            this.pnlDashboard.Controls.Add(this.imgDashboard);
+            this.pnlDashboard.Location = new System.Drawing.Point(12, 27);
+            this.pnlDashboard.Name = "pnlDashboard";
+            this.pnlDashboard.Size = new System.Drawing.Size(938, 466);
+            this.pnlDashboard.TabIndex = 2;
             // 
             // lbl_Dashboard
             // 
@@ -157,34 +152,29 @@
             this.lbl_Dashboard.Text = "Welcome to the Someren Application!";
             this.lbl_Dashboard.Click += new System.EventHandler(this.label1_Click);
             // 
-            // pnl_Students
+            // pnlStudents
             // 
-            this.pnl_Students.Controls.Add(this.listViewStudents);
-            this.pnl_Students.Controls.Add(this.pictureBox1);
-            this.pnl_Students.Controls.Add(this.lbl_Students);
-            this.pnl_Students.Location = new System.Drawing.Point(12, 24);
-            this.pnl_Students.Name = "pnl_Students";
-            this.pnl_Students.Size = new System.Drawing.Size(938, 466);
-            this.pnl_Students.TabIndex = 4;
+            this.pnlStudents.Controls.Add(this.listViewStudents);
+            this.pnlStudents.Controls.Add(this.pictureBox1);
+            this.pnlStudents.Controls.Add(this.lbl_Students);
+            this.pnlStudents.Location = new System.Drawing.Point(12, 24);
+            this.pnlStudents.Name = "pnlStudents";
+            this.pnlStudents.Size = new System.Drawing.Size(938, 466);
+            this.pnlStudents.TabIndex = 4;
             // 
             // listViewStudents
             // 
             this.listViewStudents.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.studentNumber,
-            this.firstName});
+            this.firstName,
+            this.name});
             this.listViewStudents.HideSelection = false;
-            this.listViewStudents.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1});
             this.listViewStudents.Location = new System.Drawing.Point(16, 42);
             this.listViewStudents.Name = "listViewStudents";
             this.listViewStudents.Size = new System.Drawing.Size(766, 307);
             this.listViewStudents.TabIndex = 5;
             this.listViewStudents.UseCompatibleStateImageBehavior = false;
-            // 
-            // firstName
-            // 
-            this.firstName.Text = "firstName";
-            this.firstName.Width = 152;
+            this.listViewStudents.View = System.Windows.Forms.View.Details;
             // 
             // pictureBox1
             // 
@@ -206,13 +196,28 @@
             this.lbl_Students.TabIndex = 3;
             this.lbl_Students.Text = "Students";
             // 
+            // studentNumber
+            // 
+            this.studentNumber.Text = "Student Number";
+            this.studentNumber.Width = 100;
+            // 
+            // firstName
+            // 
+            this.firstName.Text = "First Name";
+            this.firstName.Width = 100;
+            // 
+            // name
+            // 
+            this.name.Text = "Last Name";
+            this.name.Width = 100;
+            // 
             // SomerenUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(962, 505);
-            this.Controls.Add(this.pnl_Students);
-            this.Controls.Add(this.pnl_Dashboard);
+            this.Controls.Add(this.pnlStudents);
+            this.Controls.Add(this.pnlDashboard);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
@@ -220,13 +225,13 @@
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.Text = "SomerenApp";
             this.Load += new System.EventHandler(this.SomerenUI_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.img_Dashboard)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgDashboard)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.pnl_Dashboard.ResumeLayout(false);
-            this.pnl_Dashboard.PerformLayout();
-            this.pnl_Students.ResumeLayout(false);
-            this.pnl_Students.PerformLayout();
+            this.pnlDashboard.ResumeLayout(false);
+            this.pnlDashboard.PerformLayout();
+            this.pnlStudents.ResumeLayout(false);
+            this.pnlStudents.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -235,24 +240,25 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox img_Dashboard;
+        private System.Windows.Forms.PictureBox imgDashboard;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem dashboardToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dashboardToolStripMenuItem1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-        private System.Windows.Forms.Panel pnl_Dashboard;
+        private System.Windows.Forms.Panel pnlDashboard;
         private System.Windows.Forms.Label lbl_Dashboard;
         private System.Windows.Forms.ToolStripMenuItem studentsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem lecturersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem activitiesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem roomsToolStripMenuItem;
-        private System.Windows.Forms.Panel pnl_Students;
+        private System.Windows.Forms.Panel pnlStudents;
         private System.Windows.Forms.Label lbl_Students;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ListView listViewStudents;
-        private System.Windows.Forms.ColumnHeader firstName;
         private System.Windows.Forms.ColumnHeader studentNumber;
+        private System.Windows.Forms.ColumnHeader firstName;
+        private System.Windows.Forms.ColumnHeader name;
     }
 }
 

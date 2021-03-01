@@ -10,7 +10,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-
 namespace SomerenUI
 {
     public partial class SomerenUI : Form
@@ -28,55 +27,58 @@ namespace SomerenUI
         private void showPanel(string panelName)
         {
 
-            if(panelName == "Dashboard")
+            if (panelName == "Dashboard")
             {
-
                 // hide all other panels
-                pnl_Students.Hide();
+                pnlStudents.Hide();
 
                 // show dashboard
-                pnl_Dashboard.Show();
-                img_Dashboard.Show();
+                pnlDashboard.Show();
+                imgDashboard.Show();
             }
-            else if(panelName == "Students")
+            else if (panelName == "Students")
             {
                 // hide all other panels
-                pnl_Dashboard.Hide();
-                img_Dashboard.Hide();
+                pnlDashboard.Hide();
+                imgDashboard.Hide();
 
                 // show students
-                pnl_Students.Show();
+                pnlStudents.Show();
 
-                
-
-                // fill the students listview within the students panel with a list of students
-                SomerenLogic.Student_Service studService = new SomerenLogic.Student_Service();
-                List<Student> studentList = studService.GetStudents();
-
-                // clear the listview before filling it again
-                listViewStudents.Clear();
-
-                listViewStudents.Columns.Add("Student Number", 100);
-                listViewStudents.Columns.Add("First Name", 100);
-                listViewStudents.Columns.Add("Name", 100);
-                listViewStudents.View = View.Details;
-
-                foreach (SomerenModel.Student s in studentList)
+                try
                 {
-                    ListViewItem li = new ListViewItem(new string[] { 
-                        s.studentNumber.ToString(), 
+                    // fill the students listview within the students panel with a list of students
+                    StudentService studService = new StudentService(); ;
+                    List<Student> studentList = studService.GetStudents(); ;
+
+                    // clear the listview before filling it again
+                    listViewStudents.Clear();
+
+                    listViewStudents.Columns.Add("Student Number", 100);
+                    listViewStudents.Columns.Add("First Name", 100);
+                    listViewStudents.Columns.Add("Name", 100);
+                    listViewStudents.View = View.Details;
+
+                    foreach (SomerenModel.Student s in studentList)
+                    {
+                        ListViewItem li = new ListViewItem(new string[] {
+                        s.studentNumber.ToString(),
                         s.firstName,
-                        s.Name
+                        s.name
                     });
-                    listViewStudents.Items.Add(li);
+                        listViewStudents.Items.Add(li);
+                    }
                 }
-                
+                catch (Exception e)
+                {
+                    MessageBox.Show("Something went wrong while loading the students: " + e.Message);
+                }
             }
         }
 
         private void dashboardToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           //
+            //
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -94,7 +96,7 @@ namespace SomerenUI
 
         }
 
-        private void img_Dashboard_Click(object sender, EventArgs e)
+        private void imgDashboard_Click(object sender, EventArgs e)
         {
             MessageBox.Show("What happens in Someren, stays in Someren!");
         }

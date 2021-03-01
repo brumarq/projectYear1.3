@@ -1,26 +1,34 @@
 ﻿using System;
+using System.Data.SqlClient;
 using System.Configuration;
 using System.Data;
-using System.Data.SqlClient;
 
 namespace SomerenDAL
 {
-    public abstract class Base
+    public abstract class BaseDao
     {
         private SqlDataAdapter adapter;
         private SqlConnection conn;
-        public Base()
+
+        public BaseDao()
         {
-            
             conn = new SqlConnection(ConfigurationManager.ConnectionStrings["SomerenDatabase"].ConnectionString);
             adapter = new SqlDataAdapter();
         }
 
         protected SqlConnection OpenConnection()
         {
-            if (conn.State == ConnectionState.Closed || conn.State == ConnectionState.Broken)
+            try
             {
-                conn.Open();
+                if (conn.State == ConnectionState.Closed || conn.State == ConnectionState.Broken)
+                {
+                    conn.Open();
+                }
+            }
+            catch (Exception e)
+            {
+                //Print.ErrorLog(e);
+                throw;
             }
             return conn;
         }
@@ -31,7 +39,7 @@ namespace SomerenDAL
         }
 
         /* For Insert/Update/Delete Queries with transaction */
-        protected void ExecuteEditTranQuery(String query, SqlParameter[] sqlParameters, SqlTransaction sqlTransaction)
+        protected void ExecuteEditTranQuery(string query, SqlParameter[] sqlParameters, SqlTransaction sqlTransaction)
         {
             SqlCommand command = new SqlCommand(query, conn, sqlTransaction);
             try
@@ -48,7 +56,7 @@ namespace SomerenDAL
         }
 
         /* For Insert/Update/Delete Queries */
-        protected void ExecuteEditQuery(String query, SqlParameter[] sqlParameters)
+        protected void ExecuteEditQuery(string query, SqlParameter[] sqlParameters)
         {
             SqlCommand command = new SqlCommand();
 
@@ -71,10 +79,8 @@ namespace SomerenDAL
             }
         }
 
-
-
         /* For Select Queries */
-        protected DataTable ExecuteSelectQuery(String query, params SqlParameter[] sqlParameters)
+        protected DataTable ExecuteSelectQuery(string query, params SqlParameter[] sqlParameters)
         {
             SqlCommand command = new SqlCommand();
             DataTable dataTable;

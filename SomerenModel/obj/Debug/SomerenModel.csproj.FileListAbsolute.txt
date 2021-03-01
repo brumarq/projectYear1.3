@@ -1,16 +1,6 @@
-C:\Users\Thijs Otter\Desktop\INholland\Project Databases\2018-2019\Someren1819\ChapeauModel\bin\Debug\SomerenModel.dll
-C:\Users\Thijs Otter\Desktop\INholland\Project Databases\2018-2019\Someren1819\ChapeauModel\bin\Debug\SomerenModel.pdb
-C:\Users\Thijs Otter\Desktop\INholland\Project Databases\2018-2019\Someren1819\ChapeauModel\obj\Debug\SomerenModel.dll
-C:\Users\Thijs Otter\Desktop\INholland\Project Databases\2018-2019\Someren1819\ChapeauModel\obj\Debug\SomerenModel.pdb
-C:\Users\Thijs Otter\Desktop\INholland\Project Databases\2018-2019\Someren1819\ChapeauModel\obj\Debug\SomerenModel.csprojResolveAssemblyReference.cache
-C:\Users\Thijs Otter\Desktop\INholland\Project Databases\2018-2019\Someren1819\SomerenModel\bin\Debug\SomerenModel.dll
-C:\Users\Thijs Otter\Desktop\INholland\Project Databases\2018-2019\Someren1819\SomerenModel\bin\Debug\SomerenModel.pdb
-C:\Users\Thijs Otter\Desktop\INholland\Project Databases\2018-2019\Someren1819\SomerenModel\obj\Debug\SomerenModel.csprojResolveAssemblyReference.cache
-C:\Users\Thijs Otter\Desktop\INholland\Project Databases\2018-2019\Someren1819\SomerenModel\obj\Debug\SomerenModel.dll
-C:\Users\Thijs Otter\Desktop\INholland\Project Databases\2018-2019\Someren1819\SomerenModel\obj\Debug\SomerenModel.pdb
 C:\Users\Bruno\Workspace\visualStudioProjects\uni\year1.3\project\projectYear1.3\SomerenModel\bin\Debug\SomerenModel.dll
 C:\Users\Bruno\Workspace\visualStudioProjects\uni\year1.3\project\projectYear1.3\SomerenModel\bin\Debug\SomerenModel.pdb
+C:\Users\Bruno\Workspace\visualStudioProjects\uni\year1.3\project\projectYear1.3\SomerenModel\obj\Debug\SomerenModel.csprojAssemblyReference.cache
 C:\Users\Bruno\Workspace\visualStudioProjects\uni\year1.3\project\projectYear1.3\SomerenModel\obj\Debug\SomerenModel.csproj.CoreCompileInputs.cache
 C:\Users\Bruno\Workspace\visualStudioProjects\uni\year1.3\project\projectYear1.3\SomerenModel\obj\Debug\SomerenModel.dll
 C:\Users\Bruno\Workspace\visualStudioProjects\uni\year1.3\project\projectYear1.3\SomerenModel\obj\Debug\SomerenModel.pdb
-C:\Users\Bruno\Workspace\visualStudioProjects\uni\year1.3\project\projectYear1.3\SomerenModel\obj\Debug\SomerenModel.csprojAssemblyReference.cache

@@ -10,10 +10,9 @@ using SomerenModel;
 
 namespace SomerenDAL
 {
-    public class Student_DAO : Base
-    {
-      
-        public List<Student> Db_Get_All_Students()
+    public class StudentDao : BaseDao
+    {      
+        public List<Student> GetAllStudents()
         {
             string query = "SELECT studentNumber, name, firstName, telephone, email FROM [dbo].[Students]";
             SqlParameter[] sqlParameters = new SqlParameter[0];
@@ -29,7 +28,7 @@ namespace SomerenDAL
                 Student student = new Student()
                 {
                     studentNumber = (int)dr["studentNumber"],
-                    Name = (String)(dr["name"].ToString()),
+                    name = (String)(dr["name"].ToString()),
                     firstName = (String)(dr["firstName"].ToString()),
                     telephone = (String)(dr["telephone"].ToString()),
                     email = (String)(dr["email"].ToString()),
@@ -38,6 +37,5 @@ namespace SomerenDAL
             }
             return students;
         }
-            
     }
 }
