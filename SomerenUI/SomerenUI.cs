@@ -31,6 +31,7 @@ namespace SomerenUI
             {
                 // hide all other panels
                 pnlStudents.Hide();
+                pnlLecturers.Hide();
 
                 // show dashboard
                 pnlDashboard.Show();
@@ -44,7 +45,7 @@ namespace SomerenUI
 
                 // show students
                 pnlStudents.Show();
-
+                pnlLecturers.Hide();
                 try
                 {
                     // fill the students listview within the students panel with a list of students
@@ -73,6 +74,15 @@ namespace SomerenUI
                 {
                     MessageBox.Show("Something went wrong while loading the students: " + e.Message);
                 }
+            } else if (panelName == "Lecturers")
+            {
+                // hide all other panels
+                pnlDashboard.Hide();
+                imgDashboard.Hide();
+                pnlStudents.Hide();
+
+                // show students
+                pnlLecturers.Show();
             }
         }
 
@@ -104,6 +114,11 @@ namespace SomerenUI
         private void studentsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             showPanel("Students");
+        }
+
+        private void lecturersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            showPanel("Lecturers");
         }
     }
 }
