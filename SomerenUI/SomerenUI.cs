@@ -2,12 +2,6 @@
 using SomerenModel;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SomerenUI
@@ -43,7 +37,6 @@ namespace SomerenUI
                 pnlDashboard.Hide();
                 imgDashboard.Hide();
 
-
                 // show students
                 pnlStudents.Show();
                 pnlLecturers.Hide();
@@ -64,27 +57,25 @@ namespace SomerenUI
 
                     foreach (SomerenModel.Student s in studentList)
                     {
-                        ListViewItem li = new ListViewItem(new string[] {
-                        s.studentNumber.ToString(),
-                        s.firstName,
-                        s.name
-                    });
-                        listViewStudents.Items.Add(li);
+                        ListViewItem li2 = new ListViewItem(new string[] {
+                            s.studentNumber.ToString(),
+                            s.firstName,
+                            s.name
+                        });
+                        listViewStudents.Items.Add(li2);
                     }
                 }
                 catch (Exception e)
                 {
                     MessageBox.Show("Something went wrong while loading the students: " + e.Message);
                 }
-            } else if (panelName == "Lecturers")
+            }
+            else if (panelName == "Lecturers")
             {
                 // hide all other panels
                 pnlDashboard.Hide();
                 imgDashboard.Hide();
-
-                listViewStudents.Hide();
-                listViewLecturers.Show();
-
+                
 
                 // show students
                 pnlLecturers.Show();
@@ -150,8 +141,7 @@ namespace SomerenUI
         {
             showPanel("Students");
         }
-
-        private void lecturersToolStripMenuItem_Click(object sender, EventArgs e)
+        private void lecturersToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             showPanel("Lecturers");
         }
