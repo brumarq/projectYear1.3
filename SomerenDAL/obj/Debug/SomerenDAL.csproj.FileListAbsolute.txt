@@ -7,3 +7,12 @@ C:\Users\Bruno\Workspace\visualStudioProjects\uni\year1.3\project\projectYear1.3
 C:\Users\Bruno\Workspace\visualStudioProjects\uni\year1.3\project\projectYear1.3\SomerenDAL\obj\Debug\SomerenDAL.csproj.CopyComplete
 C:\Users\Bruno\Workspace\visualStudioProjects\uni\year1.3\project\projectYear1.3\SomerenDAL\obj\Debug\SomerenDAL.dll
 C:\Users\Bruno\Workspace\visualStudioProjects\uni\year1.3\project\projectYear1.3\SomerenDAL\obj\Debug\SomerenDAL.pdb
+C:\Users\Mourad\Documents\GitHub\projectYear1.3\SomerenDAL\bin\Debug\SomerenDAL.dll
+C:\Users\Mourad\Documents\GitHub\projectYear1.3\SomerenDAL\bin\Debug\SomerenDAL.pdb
+C:\Users\Mourad\Documents\GitHub\projectYear1.3\SomerenDAL\bin\Debug\SomerenModel.dll
+C:\Users\Mourad\Documents\GitHub\projectYear1.3\SomerenDAL\bin\Debug\SomerenModel.pdb
+C:\Users\Mourad\Documents\GitHub\projectYear1.3\SomerenDAL\obj\Debug\SomerenDAL.csprojAssemblyReference.cache
+C:\Users\Mourad\Documents\GitHub\projectYear1.3\SomerenDAL\obj\Debug\SomerenDAL.csproj.CoreCompileInputs.cache
+C:\Users\Mourad\Documents\GitHub\projectYear1.3\SomerenDAL\obj\Debug\SomerenDAL.csproj.CopyComplete
+C:\Users\Mourad\Documents\GitHub\projectYear1.3\SomerenDAL\obj\Debug\SomerenDAL.dll
+C:\Users\Mourad\Documents\GitHub\projectYear1.3\SomerenDAL\obj\Debug\SomerenDAL.pdb

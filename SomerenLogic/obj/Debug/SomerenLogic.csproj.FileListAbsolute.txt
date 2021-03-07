@@ -9,3 +9,14 @@ C:\Users\Bruno\Workspace\visualStudioProjects\uni\year1.3\project\projectYear1.3
 C:\Users\Bruno\Workspace\visualStudioProjects\uni\year1.3\project\projectYear1.3\SomerenLogic\obj\Debug\SomerenLogic.csproj.CopyComplete
 C:\Users\Bruno\Workspace\visualStudioProjects\uni\year1.3\project\projectYear1.3\SomerenLogic\obj\Debug\SomerenLogic.dll
 C:\Users\Bruno\Workspace\visualStudioProjects\uni\year1.3\project\projectYear1.3\SomerenLogic\obj\Debug\SomerenLogic.pdb
+C:\Users\Mourad\Documents\GitHub\projectYear1.3\SomerenLogic\bin\Debug\SomerenLogic.dll
+C:\Users\Mourad\Documents\GitHub\projectYear1.3\SomerenLogic\bin\Debug\SomerenLogic.pdb
+C:\Users\Mourad\Documents\GitHub\projectYear1.3\SomerenLogic\bin\Debug\SomerenDAL.dll
+C:\Users\Mourad\Documents\GitHub\projectYear1.3\SomerenLogic\bin\Debug\SomerenModel.dll
+C:\Users\Mourad\Documents\GitHub\projectYear1.3\SomerenLogic\bin\Debug\SomerenDAL.pdb
+C:\Users\Mourad\Documents\GitHub\projectYear1.3\SomerenLogic\bin\Debug\SomerenModel.pdb
+C:\Users\Mourad\Documents\GitHub\projectYear1.3\SomerenLogic\obj\Debug\SomerenLogic.csprojAssemblyReference.cache
+C:\Users\Mourad\Documents\GitHub\projectYear1.3\SomerenLogic\obj\Debug\SomerenLogic.csproj.CoreCompileInputs.cache
+C:\Users\Mourad\Documents\GitHub\projectYear1.3\SomerenLogic\obj\Debug\SomerenLogic.csproj.CopyComplete
+C:\Users\Mourad\Documents\GitHub\projectYear1.3\SomerenLogic\obj\Debug\SomerenLogic.dll
+C:\Users\Mourad\Documents\GitHub\projectYear1.3\SomerenLogic\obj\Debug\SomerenLogic.pdb

@@ -43,9 +43,11 @@ namespace SomerenUI
                 pnlDashboard.Hide();
                 imgDashboard.Hide();
 
+
                 // show students
                 pnlStudents.Show();
                 pnlLecturers.Hide();
+
                 try
                 {
                     // fill the students listview within the students panel with a list of students
@@ -79,10 +81,43 @@ namespace SomerenUI
                 // hide all other panels
                 pnlDashboard.Hide();
                 imgDashboard.Hide();
-                pnlStudents.Hide();
+
+                listViewStudents.Hide();
+                listViewLecturers.Show();
+
 
                 // show students
                 pnlLecturers.Show();
+                pnlStudents.Hide();
+
+                try
+                {
+                    // fill the students listview within the students panel with a list of students
+                    LecturerService lecturerService = new LecturerService();
+                    List<Teacher> lecturersList = lecturerService.GetTeachers();
+
+                    // clear the listview before filling it again
+                    listViewLecturers.Clear();
+
+                    listViewLecturers.Columns.Add("Lecturer ID", 100);
+                    listViewLecturers.Columns.Add("First Name", 100);
+                    listViewLecturers.Columns.Add("Name", 100);
+                    listViewLecturers.View = View.Details;
+
+                    foreach (SomerenModel.Teacher s in lecturersList)
+                    {
+                        ListViewItem li = new ListViewItem(new string[] {
+                        s.teacherNumber.ToString(),
+                        s.firstName,
+                        s.name
+                    });
+                        listViewLecturers.Items.Add(li);
+                    }
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("Something went wrong while loading the teachers: " + e.Message);
+                }
             }
         }
 
