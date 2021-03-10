@@ -16,3 +16,12 @@ C:\Users\Mourad\Documents\GitHub\projectYear1.3\SomerenDAL\obj\Debug\SomerenDAL.
 C:\Users\Mourad\Documents\GitHub\projectYear1.3\SomerenDAL\obj\Debug\SomerenDAL.csproj.CopyComplete
 C:\Users\Mourad\Documents\GitHub\projectYear1.3\SomerenDAL\obj\Debug\SomerenDAL.dll
 C:\Users\Mourad\Documents\GitHub\projectYear1.3\SomerenDAL\obj\Debug\SomerenDAL.pdb
+D:\Inholland.Univ\Year 1\TERM3\Project\projectYear1.3\SomerenDAL\bin\Debug\SomerenDAL.dll
+D:\Inholland.Univ\Year 1\TERM3\Project\projectYear1.3\SomerenDAL\bin\Debug\SomerenDAL.pdb
+D:\Inholland.Univ\Year 1\TERM3\Project\projectYear1.3\SomerenDAL\bin\Debug\SomerenModel.dll
+D:\Inholland.Univ\Year 1\TERM3\Project\projectYear1.3\SomerenDAL\bin\Debug\SomerenModel.pdb
+D:\Inholland.Univ\Year 1\TERM3\Project\projectYear1.3\SomerenDAL\obj\Debug\SomerenDAL.csprojAssemblyReference.cache
+D:\Inholland.Univ\Year 1\TERM3\Project\projectYear1.3\SomerenDAL\obj\Debug\SomerenDAL.csproj.CoreCompileInputs.cache
+D:\Inholland.Univ\Year 1\TERM3\Project\projectYear1.3\SomerenDAL\obj\Debug\SomerenDAL.csproj.CopyComplete
+D:\Inholland.Univ\Year 1\TERM3\Project\projectYear1.3\SomerenDAL\obj\Debug\SomerenDAL.dll
+D:\Inholland.Univ\Year 1\TERM3\Project\projectYear1.3\SomerenDAL\obj\Debug\SomerenDAL.pdb
