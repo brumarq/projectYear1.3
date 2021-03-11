@@ -58,9 +58,9 @@ namespace SomerenUI
                     foreach (SomerenModel.Student s in studentList)
                     {
                         ListViewItem li2 = new ListViewItem(new string[] {
-                            s.studentNumber.ToString(),
-                            s.firstName,
-                            s.name
+                            s.StudentNumber.ToString(),
+                            s.Firstname,
+                            s.Name
                         });
                         listViewStudents.Items.Add(li2);
                     }
@@ -98,9 +98,9 @@ namespace SomerenUI
                     foreach (SomerenModel.Teacher s in lecturersList)
                     {
                         ListViewItem li = new ListViewItem(new string[] {
-                        s.teacherNumber.ToString(),
-                        s.firstName,
-                        s.name
+                        s.TeacherNumber.ToString(),
+                        s.FirstName,
+                        s.Name
                     });
                         listViewLecturers.Items.Add(li);
                     }

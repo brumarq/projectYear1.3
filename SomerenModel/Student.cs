@@ -8,12 +8,12 @@ namespace SomerenModel
 {
     public class Student
     {
-        public String name { get; set; }
-        public String firstName { get; set; }
-        public int studentNumber { get; set; } // StudentNumber, e.g. 474791
-        public string telephone { get; set; }
-        public string email { get; set; }
-        public Room roomId { get; set; }
+        public string Name { get; set; }
+        public string Firstname { get; set; }
+        public int StudentNumber { get; set; } // StudentNumber, e.g. 474791
+        public string Telephone { get; set; }
+        public string Email { get; set; }
+        public int RoomId { get; set; }
         public DateTime BirthDate { get; set; }
     }
 }

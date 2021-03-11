@@ -27,11 +27,11 @@ namespace SomerenDAL
             {
                 Student student = new Student()
                 {
-                    studentNumber = (int)dr["studentNumber"],
-                    name = (String)(dr["name"].ToString()),
-                    firstName = (String)(dr["firstName"].ToString()),
-                    telephone = (String)(dr["telephone"].ToString()),
-                    email = (String)(dr["email"].ToString()),
+                    StudentNumber = (int)dr["studentNumber"],
+                    Name = dr["name"].ToString(),
+                    Firstname = dr["firstName"].ToString(),
+                    Telephone = dr["telephone"].ToString(),
+                    Email = dr["email"].ToString(),
                 };
                 students.Add(student);
             }
