@@ -32,3 +32,20 @@ C:\Users\Mourad\Documents\GitHub\projectYear1.3\SomerenUI\obj\Debug\SomerenUI.cs
 C:\Users\Mourad\Documents\GitHub\projectYear1.3\SomerenUI\obj\Debug\SomerenUI.csproj.CopyComplete
 C:\Users\Mourad\Documents\GitHub\projectYear1.3\SomerenUI\obj\Debug\SomerenUI.exe
 C:\Users\Mourad\Documents\GitHub\projectYear1.3\SomerenUI\obj\Debug\SomerenUI.pdb
+D:\Inholland.Univ\Year 1\TERM3\Project\projectYear1.3\SomerenUI\bin\Debug\SomerenUI.exe.config
+D:\Inholland.Univ\Year 1\TERM3\Project\projectYear1.3\SomerenUI\bin\Debug\SomerenUI.exe
+D:\Inholland.Univ\Year 1\TERM3\Project\projectYear1.3\SomerenUI\bin\Debug\SomerenUI.pdb
+D:\Inholland.Univ\Year 1\TERM3\Project\projectYear1.3\SomerenUI\bin\Debug\SomerenDAL.dll
+D:\Inholland.Univ\Year 1\TERM3\Project\projectYear1.3\SomerenUI\bin\Debug\SomerenLogic.dll
+D:\Inholland.Univ\Year 1\TERM3\Project\projectYear1.3\SomerenUI\bin\Debug\SomerenModel.dll
+D:\Inholland.Univ\Year 1\TERM3\Project\projectYear1.3\SomerenUI\bin\Debug\SomerenDAL.pdb
+D:\Inholland.Univ\Year 1\TERM3\Project\projectYear1.3\SomerenUI\bin\Debug\SomerenLogic.pdb
+D:\Inholland.Univ\Year 1\TERM3\Project\projectYear1.3\SomerenUI\bin\Debug\SomerenModel.pdb
+D:\Inholland.Univ\Year 1\TERM3\Project\projectYear1.3\SomerenUI\obj\Debug\SomerenUI.csprojAssemblyReference.cache
+D:\Inholland.Univ\Year 1\TERM3\Project\projectYear1.3\SomerenUI\obj\Debug\SomerenUI.SomerenUI.resources
+D:\Inholland.Univ\Year 1\TERM3\Project\projectYear1.3\SomerenUI\obj\Debug\SomerenUI.Properties.Resources.resources
+D:\Inholland.Univ\Year 1\TERM3\Project\projectYear1.3\SomerenUI\obj\Debug\SomerenUI.csproj.GenerateResource.cache
+D:\Inholland.Univ\Year 1\TERM3\Project\projectYear1.3\SomerenUI\obj\Debug\SomerenUI.csproj.CoreCompileInputs.cache
+D:\Inholland.Univ\Year 1\TERM3\Project\projectYear1.3\SomerenUI\obj\Debug\SomerenUI.csproj.CopyComplete
+D:\Inholland.Univ\Year 1\TERM3\Project\projectYear1.3\SomerenUI\obj\Debug\SomerenUI.exe
+D:\Inholland.Univ\Year 1\TERM3\Project\projectYear1.3\SomerenUI\obj\Debug\SomerenUI.pdb

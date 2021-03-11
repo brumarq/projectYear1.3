@@ -20,3 +20,14 @@ C:\Users\Mourad\Documents\GitHub\projectYear1.3\SomerenLogic\obj\Debug\SomerenLo
 C:\Users\Mourad\Documents\GitHub\projectYear1.3\SomerenLogic\obj\Debug\SomerenLogic.csproj.CopyComplete
 C:\Users\Mourad\Documents\GitHub\projectYear1.3\SomerenLogic\obj\Debug\SomerenLogic.dll
 C:\Users\Mourad\Documents\GitHub\projectYear1.3\SomerenLogic\obj\Debug\SomerenLogic.pdb
+D:\Inholland.Univ\Year 1\TERM3\Project\projectYear1.3\SomerenLogic\bin\Debug\SomerenLogic.dll
+D:\Inholland.Univ\Year 1\TERM3\Project\projectYear1.3\SomerenLogic\bin\Debug\SomerenLogic.pdb
+D:\Inholland.Univ\Year 1\TERM3\Project\projectYear1.3\SomerenLogic\bin\Debug\SomerenDAL.dll
+D:\Inholland.Univ\Year 1\TERM3\Project\projectYear1.3\SomerenLogic\bin\Debug\SomerenModel.dll
+D:\Inholland.Univ\Year 1\TERM3\Project\projectYear1.3\SomerenLogic\bin\Debug\SomerenDAL.pdb
+D:\Inholland.Univ\Year 1\TERM3\Project\projectYear1.3\SomerenLogic\bin\Debug\SomerenModel.pdb
+D:\Inholland.Univ\Year 1\TERM3\Project\projectYear1.3\SomerenLogic\obj\Debug\SomerenLogic.csprojAssemblyReference.cache
+D:\Inholland.Univ\Year 1\TERM3\Project\projectYear1.3\SomerenLogic\obj\Debug\SomerenLogic.csproj.CoreCompileInputs.cache
+D:\Inholland.Univ\Year 1\TERM3\Project\projectYear1.3\SomerenLogic\obj\Debug\SomerenLogic.csproj.CopyComplete
+D:\Inholland.Univ\Year 1\TERM3\Project\projectYear1.3\SomerenLogic\obj\Debug\SomerenLogic.dll
+D:\Inholland.Univ\Year 1\TERM3\Project\projectYear1.3\SomerenLogic\obj\Debug\SomerenLogic.pdb

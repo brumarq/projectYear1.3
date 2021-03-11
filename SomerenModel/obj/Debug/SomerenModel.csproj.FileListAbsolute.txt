@@ -10,3 +10,9 @@ C:\Users\Mourad\Documents\GitHub\projectYear1.3\SomerenModel\obj\Debug\SomerenMo
 C:\Users\Mourad\Documents\GitHub\projectYear1.3\SomerenModel\obj\Debug\SomerenModel.dll
 C:\Users\Mourad\Documents\GitHub\projectYear1.3\SomerenModel\obj\Debug\SomerenModel.pdb
 C:\Users\Bruno\Workspace\visualStudioProjects\uni\year1.3\project\projectYear1.3\SomerenModel\obj\Debug\SomerenModel.csprojAssemblyReference.cache
+D:\Inholland.Univ\Year 1\TERM3\Project\projectYear1.3\SomerenModel\bin\Debug\SomerenModel.dll
+D:\Inholland.Univ\Year 1\TERM3\Project\projectYear1.3\SomerenModel\bin\Debug\SomerenModel.pdb
+D:\Inholland.Univ\Year 1\TERM3\Project\projectYear1.3\SomerenModel\obj\Debug\SomerenModel.csprojAssemblyReference.cache
+D:\Inholland.Univ\Year 1\TERM3\Project\projectYear1.3\SomerenModel\obj\Debug\SomerenModel.csproj.CoreCompileInputs.cache
+D:\Inholland.Univ\Year 1\TERM3\Project\projectYear1.3\SomerenModel\obj\Debug\SomerenModel.dll
+D:\Inholland.Univ\Year 1\TERM3\Project\projectYear1.3\SomerenModel\obj\Debug\SomerenModel.pdb
