@@ -1,17 +1,12 @@
-﻿using System;
+﻿using SomerenModel;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data.SqlClient;
 using System.Data;
-using System.Collections.ObjectModel;
-using SomerenModel;
+using System.Data.SqlClient;
 
 namespace SomerenDAL
 {
     public class StudentDao : BaseDao
-    {      
+    {
         public List<Student> GetAllStudents()
         {
             string query = "SELECT studentNumber, name, firstName, telephone, email FROM [dbo].[Students]";

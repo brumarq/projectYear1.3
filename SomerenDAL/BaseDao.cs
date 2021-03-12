@@ -1,7 +1,8 @@
 ﻿using System;
-using System.Data.SqlClient;
 using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
+using System.Diagnostics;
 
 namespace SomerenDAL
 {
@@ -9,6 +10,7 @@ namespace SomerenDAL
     {
         private SqlDataAdapter adapter;
         private SqlConnection conn;
+        private EventLog appLog = new EventLog("Application"); // Initiate EventLog
 
         public BaseDao()
         {
@@ -27,7 +29,8 @@ namespace SomerenDAL
             }
             catch (Exception e)
             {
-                //Print.ErrorLog(e);
+                appLog.Source = "Openning Connection";
+                appLog.WriteEntry(e.Message);
                 throw;
             }
             return conn;
@@ -50,7 +53,8 @@ namespace SomerenDAL
             }
             catch (Exception e)
             {
-                //Print.ErrorLog(e);
+                appLog.Source = "Executing Transaction Queries";
+                appLog.WriteEntry(e.Message);
                 throw;
             }
         }
@@ -70,7 +74,8 @@ namespace SomerenDAL
             }
             catch (SqlException e)
             {
-                // Print.ErrorLog(e);
+                appLog.Source = "Executing Edit Queries";
+                appLog.WriteEntry(e.Message);
                 throw;
             }
             finally
@@ -98,7 +103,8 @@ namespace SomerenDAL
             }
             catch (SqlException e)
             {
-                // Print.ErrorLog(e);
+                appLog.Source = "Executing Select Queries";
+                appLog.WriteEntry(e.Message);
                 return null;
                 throw;
             }

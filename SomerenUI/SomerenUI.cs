@@ -2,6 +2,7 @@
 using SomerenModel;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace SomerenUI
@@ -20,6 +21,7 @@ namespace SomerenUI
 
         private void showPanel(string panelName)
         {
+            EventLog appLog = new EventLog("Application"); // Initiate EventLog
 
             if (panelName == "Dashboard")
             {
@@ -37,11 +39,11 @@ namespace SomerenUI
                 // hide all other panels
                 pnlDashboard.Hide();
                 imgDashboard.Hide();
+                pnlLecturers.Hide();
+                pnlRooms.Hide();
 
                 // show students
                 pnlStudents.Show();
-                pnlLecturers.Hide();
-                pnlRooms.Hide();
 
                 try
                 {
@@ -59,16 +61,18 @@ namespace SomerenUI
 
                     foreach (SomerenModel.Student s in studentList)
                     {
-                        ListViewItem li2 = new ListViewItem(new string[] {
+                        ListViewItem li = new ListViewItem(new string[] {
                             s.StudentNumber.ToString(),
                             s.Firstname,
                             s.Name
                         });
-                        listViewStudents.Items.Add(li2);
+                        listViewStudents.Items.Add(li); // Add all the values to the listview
                     }
                 }
                 catch (Exception e)
                 {
+                    appLog.Source = "Loading Panel Students";
+                    appLog.WriteEntry(e.Message);
                     MessageBox.Show("Something went wrong while loading the students: " + e.Message);
                 }
             }
@@ -77,22 +81,22 @@ namespace SomerenUI
                 // hide all other panels
                 pnlDashboard.Hide();
                 imgDashboard.Hide();
-                
-
-                // show students
-                pnlLecturers.Show();
                 pnlStudents.Hide();
                 pnlRooms.Hide();
 
+                // show lecturers
+                pnlLecturers.Show();
+
                 try
                 {
-                    // fill the students listview within the students panel with a list of students
+                    // fill the lecturers listview within the lecturers panel with a list of lecturers
                     LecturerService lecturerService = new LecturerService();
                     List<Teacher> lecturersList = lecturerService.GetTeachers();
 
                     // clear the listview before filling it again
                     listViewLecturers.Clear();
 
+                    // Add columsn since .Clear() also deletes the columns
                     listViewLecturers.Columns.Add("Lecturer ID", 100);
                     listViewLecturers.Columns.Add("First Name", 100);
                     listViewLecturers.Columns.Add("Name", 100);
@@ -105,11 +109,13 @@ namespace SomerenUI
                         s.FirstName,
                         s.Name
                     });
-                        listViewLecturers.Items.Add(li);
+                        listViewLecturers.Items.Add(li); // Add all the values to the listview
                     }
                 }
                 catch (Exception e)
                 {
+                    appLog.Source = "Loading Panel Teachers";
+                    appLog.WriteEntry(e.Message);
                     MessageBox.Show("Something went wrong while loading the teachers: " + e.Message);
                 }
             }
@@ -118,26 +124,26 @@ namespace SomerenUI
                 // hide all other panels
                 pnlDashboard.Hide();
                 imgDashboard.Hide();
-
-
-                // show students
-                pnlRooms.Show();
                 pnlLecturers.Hide();
                 pnlStudents.Hide();
 
+                // show Rooms
+                pnlRooms.Show();
+
                 try
                 {
-                    // fill the students listview within the students panel with a list of students
+                    // fill the Rooms listview within the Rooms panel with a list of Rooms
                     RoomService roomService = new RoomService();
                     List<Room> roomsList = roomService.GetRooms();
 
                     // clear the listview before filling it again
                     listViewRooms.Clear();
 
+                    // Add columsn since .Clear() also deletes the columns
                     listViewRooms.Columns.Add("Number", 100);
                     listViewRooms.Columns.Add("Type", 100);
                     listViewRooms.Columns.Add("Capacity", 100);
-                    
+
                     listViewRooms.View = View.Details;
 
                     foreach (SomerenModel.Room s in roomsList)
@@ -148,11 +154,13 @@ namespace SomerenUI
                         s.Capacity.ToString(),
 
                     });
-                        listViewRooms.Items.Add(li);
+                        listViewRooms.Items.Add(li); // Add all the values to the listview
                     }
                 }
                 catch (Exception e)
                 {
+                    appLog.Source = "Loading Panel Rooms";
+                    appLog.WriteEntry(e.Message);
                     MessageBox.Show("Something went wrong while loading the rooms: " + e.Message);
                 }
             }
@@ -171,11 +179,6 @@ namespace SomerenUI
         private void dashboardToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             showPanel("Dashboard");
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void imgDashboard_Click(object sender, EventArgs e)
