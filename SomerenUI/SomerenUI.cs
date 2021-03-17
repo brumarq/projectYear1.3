@@ -9,6 +9,8 @@ namespace SomerenUI
 {
     public partial class SomerenUI : Form
     {
+        private EventLog appLog = new EventLog("Application"); // Initiate EventLog
+
         public SomerenUI()
         {
             InitializeComponent();
@@ -188,6 +190,8 @@ namespace SomerenUI
                     // clear the listview before filling it again
                     listViewDrinks.Clear();
 
+                    listViewDrinks.FullRowSelect = true;
+
                     // Add columsn since .Clear() also deletes the columns
                     listViewDrinks.Columns.Add("Name", 100);
                     listViewDrinks.Columns.Add("Stock", 100);
@@ -201,13 +205,14 @@ namespace SomerenUI
                         s.Name.ToString(),
                         s.Stock.ToString(),
                         s.SalesPrice.ToString(),
+                        s.DrinkID.ToString(),
                     });
                         listViewDrinks.Items.Add(li); // Add all the values to the listview
                     }
                 }
                 catch (Exception e)
                 {
-                    appLog.Source = "Loading Panel Drinks";
+                    appLog.Source = "Application";
                     appLog.WriteEntry(e.Message);
                     MessageBox.Show("Something went wrong while loading the drinks: " + e.Message);
                 }
@@ -250,7 +255,70 @@ namespace SomerenUI
 
         private void drinksToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            // Reset the text boxes
+            txtName.Text = "";
+            txtStock.Text = "";
+            txtPrice.Text = "";
+
             showPanel("Drinks");
+        }
+
+        private void listViewDrinks_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (this.listViewDrinks.SelectedItems.Count != 1)
+                return;
+
+            try
+            {
+                txtName.Text = this.listViewDrinks.SelectedItems[0].SubItems[0].Text;
+                txtStock.Text = this.listViewDrinks.SelectedItems[0].SubItems[1].Text;
+                txtPrice.Text = this.listViewDrinks.SelectedItems[0].SubItems[2].Text;
+            }
+            catch (Exception err)
+            {
+                appLog.Source = "Application";
+                appLog.WriteEntry(err.Message);
+                throw;
+            }
+
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            
+
+            if (this.listViewDrinks.SelectedItems.Count != 1)
+                return;
+
+            try
+            {
+                string drinkID = this.listViewDrinks.SelectedItems[0].SubItems[3].Text;
+
+                // Set up Drink object
+                Drink drink = new Drink();
+
+                drink.DrinkID = int.Parse(drinkID);
+                drink.Name = txtName.Text;
+                drink.Stock = int.Parse(txtStock.Text);
+                drink.SalesPrice = double.Parse(txtPrice.Text);
+                
+                //Update
+                DrinkService drinkService = new DrinkService();
+                drinkService.UpdateDrinks(drink);
+
+                //Reset everything after updating
+                showPanel("Drinks");
+                txtName.Text = "";
+                txtStock.Text = "";
+                txtPrice.Text = "";
+            }
+            catch (Exception err)
+            {
+                appLog.Source = "Application";
+                appLog.WriteEntry(err.Message);
+                throw;
+            }
+
         }
     }
 }
