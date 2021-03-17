@@ -41,6 +41,7 @@ namespace SomerenUI
                 imgDashboard.Hide();
                 pnlLecturers.Hide();
                 pnlRooms.Hide();
+                pnlDrinks.Hide();
 
                 // show students
                 pnlStudents.Show();
@@ -83,6 +84,7 @@ namespace SomerenUI
                 imgDashboard.Hide();
                 pnlStudents.Hide();
                 pnlRooms.Hide();
+                pnlDrinks.Hide();
 
                 // show lecturers
                 pnlLecturers.Show();
@@ -126,6 +128,7 @@ namespace SomerenUI
                 imgDashboard.Hide();
                 pnlLecturers.Hide();
                 pnlStudents.Hide();
+                pnlDrinks.Hide();
 
                 // show Rooms
                 pnlRooms.Show();
@@ -164,6 +167,51 @@ namespace SomerenUI
                     MessageBox.Show("Something went wrong while loading the rooms: " + e.Message);
                 }
             }
+            else if (panelName == "Drinks")
+            {
+                // hide all other panels
+                pnlDashboard.Hide();
+                imgDashboard.Hide();
+                pnlLecturers.Hide();
+                pnlStudents.Hide();
+                pnlRooms.Hide();
+
+                // show Rooms
+                pnlDrinks.Show();
+
+                try
+                {
+                    // fill the Rooms listview within the Rooms panel with a list of Rooms
+                    DrinkService drinkService = new DrinkService();
+                    List<Drink> drinksList = drinkService.GetDrinks();
+
+                    // clear the listview before filling it again
+                    listViewDrinks.Clear();
+
+                    // Add columsn since .Clear() also deletes the columns
+                    listViewDrinks.Columns.Add("Name", 100);
+                    listViewDrinks.Columns.Add("Stock", 100);
+                    listViewDrinks.Columns.Add("Price", 100);
+
+                    listViewDrinks.View = View.Details;
+
+                    foreach (SomerenModel.Drink s in drinksList)
+                    {
+                        ListViewItem li = new ListViewItem(new string[] {
+                        s.Name.ToString(),
+                        s.Stock.ToString(),
+                        s.SalesPrice.ToString(),
+                    });
+                        listViewDrinks.Items.Add(li); // Add all the values to the listview
+                    }
+                }
+                catch (Exception e)
+                {
+                    appLog.Source = "Loading Panel Drinks";
+                    appLog.WriteEntry(e.Message);
+                    MessageBox.Show("Something went wrong while loading the drinks: " + e.Message);
+                }
+            }
         }
 
         private void dashboardToolStripMenuItem_Click(object sender, EventArgs e)
@@ -198,6 +246,11 @@ namespace SomerenUI
         private void roomsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             showPanel("Rooms");
+        }
+
+        private void drinksToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            showPanel("Drinks");
         }
     }
 }
