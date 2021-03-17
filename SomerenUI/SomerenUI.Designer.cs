@@ -58,6 +58,13 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.lbl_Rooms = new System.Windows.Forms.Label();
             this.pnlDrinks = new System.Windows.Forms.Panel();
+            this.btnAddDrink = new System.Windows.Forms.Button();
+            this.btnBackDrink = new System.Windows.Forms.Button();
+            this.lblDrinkType = new System.Windows.Forms.Label();
+            this.txtDrinkType = new System.Windows.Forms.TextBox();
+            this.btnShowAddDrink = new System.Windows.Forms.Button();
+            this.btnDeleteDrink = new System.Windows.Forms.Button();
+            this.btnUpdateDrink = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -67,7 +74,6 @@
             this.listViewDrinks = new System.Windows.Forms.ListView();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.lbl_Drinks = new System.Windows.Forms.Label();
-            this.btnUpdate = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.imgDashboard)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.pnlDashboard.SuspendLayout();
@@ -328,7 +334,13 @@
             // 
             // pnlDrinks
             // 
-            this.pnlDrinks.Controls.Add(this.btnUpdate);
+            this.pnlDrinks.Controls.Add(this.btnAddDrink);
+            this.pnlDrinks.Controls.Add(this.btnBackDrink);
+            this.pnlDrinks.Controls.Add(this.lblDrinkType);
+            this.pnlDrinks.Controls.Add(this.txtDrinkType);
+            this.pnlDrinks.Controls.Add(this.btnShowAddDrink);
+            this.pnlDrinks.Controls.Add(this.btnDeleteDrink);
+            this.pnlDrinks.Controls.Add(this.btnUpdateDrink);
             this.pnlDrinks.Controls.Add(this.label3);
             this.pnlDrinks.Controls.Add(this.label2);
             this.pnlDrinks.Controls.Add(this.label1);
@@ -343,11 +355,88 @@
             this.pnlDrinks.Size = new System.Drawing.Size(938, 466);
             this.pnlDrinks.TabIndex = 8;
             // 
+            // btnAddDrink
+            // 
+            this.btnAddDrink.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddDrink.Location = new System.Drawing.Point(741, 325);
+            this.btnAddDrink.Name = "btnAddDrink";
+            this.btnAddDrink.Size = new System.Drawing.Size(103, 30);
+            this.btnAddDrink.TabIndex = 18;
+            this.btnAddDrink.Text = "&Add";
+            this.btnAddDrink.UseVisualStyleBackColor = true;
+            this.btnAddDrink.Visible = false;
+            this.btnAddDrink.Click += new System.EventHandler(this.btnAddDrink_Click);
+            // 
+            // btnBackDrink
+            // 
+            this.btnBackDrink.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBackDrink.Location = new System.Drawing.Point(606, 325);
+            this.btnBackDrink.Name = "btnBackDrink";
+            this.btnBackDrink.Size = new System.Drawing.Size(103, 30);
+            this.btnBackDrink.TabIndex = 17;
+            this.btnBackDrink.Text = "&Back";
+            this.btnBackDrink.UseVisualStyleBackColor = true;
+            this.btnBackDrink.Visible = false;
+            this.btnBackDrink.Click += new System.EventHandler(this.btnBackDrink_Click);
+            // 
+            // lblDrinkType
+            // 
+            this.lblDrinkType.AutoSize = true;
+            this.lblDrinkType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDrinkType.Location = new System.Drawing.Point(562, 283);
+            this.lblDrinkType.Name = "lblDrinkType";
+            this.lblDrinkType.Size = new System.Drawing.Size(84, 20);
+            this.lblDrinkType.TabIndex = 16;
+            this.lblDrinkType.Text = "Drink Type";
+            this.lblDrinkType.Visible = false;
+            // 
+            // txtDrinkType
+            // 
+            this.txtDrinkType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDrinkType.Location = new System.Drawing.Point(659, 280);
+            this.txtDrinkType.Name = "txtDrinkType";
+            this.txtDrinkType.Size = new System.Drawing.Size(223, 26);
+            this.txtDrinkType.TabIndex = 15;
+            this.txtDrinkType.Visible = false;
+            // 
+            // btnShowAddDrink
+            // 
+            this.btnShowAddDrink.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnShowAddDrink.Location = new System.Drawing.Point(566, 421);
+            this.btnShowAddDrink.Name = "btnShowAddDrink";
+            this.btnShowAddDrink.Size = new System.Drawing.Size(316, 30);
+            this.btnShowAddDrink.TabIndex = 14;
+            this.btnShowAddDrink.Text = "&Add new Drink";
+            this.btnShowAddDrink.UseVisualStyleBackColor = true;
+            this.btnShowAddDrink.Click += new System.EventHandler(this.btnShowAddDrink_Click);
+            // 
+            // btnDeleteDrink
+            // 
+            this.btnDeleteDrink.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteDrink.Location = new System.Drawing.Point(741, 289);
+            this.btnDeleteDrink.Name = "btnDeleteDrink";
+            this.btnDeleteDrink.Size = new System.Drawing.Size(103, 30);
+            this.btnDeleteDrink.TabIndex = 13;
+            this.btnDeleteDrink.Text = "&Delete";
+            this.btnDeleteDrink.UseVisualStyleBackColor = true;
+            this.btnDeleteDrink.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // btnUpdateDrink
+            // 
+            this.btnUpdateDrink.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdateDrink.Location = new System.Drawing.Point(606, 289);
+            this.btnUpdateDrink.Name = "btnUpdateDrink";
+            this.btnUpdateDrink.Size = new System.Drawing.Size(103, 30);
+            this.btnUpdateDrink.TabIndex = 12;
+            this.btnUpdateDrink.Text = "&Update";
+            this.btnUpdateDrink.UseVisualStyleBackColor = true;
+            this.btnUpdateDrink.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(40, 332);
+            this.label3.Location = new System.Drawing.Point(562, 247);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(44, 20);
             this.label3.TabIndex = 11;
@@ -357,7 +446,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(40, 293);
+            this.label2.Location = new System.Drawing.Point(562, 208);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(50, 20);
             this.label2.TabIndex = 10;
@@ -367,7 +456,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(40, 253);
+            this.label1.Location = new System.Drawing.Point(562, 168);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(51, 20);
             this.label1.TabIndex = 9;
@@ -376,7 +465,7 @@
             // txtPrice
             // 
             this.txtPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPrice.Location = new System.Drawing.Point(137, 329);
+            this.txtPrice.Location = new System.Drawing.Point(659, 244);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(223, 26);
             this.txtPrice.TabIndex = 8;
@@ -384,7 +473,7 @@
             // txtStock
             // 
             this.txtStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtStock.Location = new System.Drawing.Point(137, 290);
+            this.txtStock.Location = new System.Drawing.Point(659, 205);
             this.txtStock.Name = "txtStock";
             this.txtStock.Size = new System.Drawing.Size(223, 26);
             this.txtStock.TabIndex = 7;
@@ -392,7 +481,7 @@
             // txtName
             // 
             this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtName.Location = new System.Drawing.Point(137, 250);
+            this.txtName.Location = new System.Drawing.Point(659, 165);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(223, 26);
             this.txtName.TabIndex = 6;
@@ -402,7 +491,7 @@
             this.listViewDrinks.HideSelection = false;
             this.listViewDrinks.Location = new System.Drawing.Point(16, 42);
             this.listViewDrinks.Name = "listViewDrinks";
-            this.listViewDrinks.Size = new System.Drawing.Size(766, 178);
+            this.listViewDrinks.Size = new System.Drawing.Size(502, 409);
             this.listViewDrinks.TabIndex = 5;
             this.listViewDrinks.UseCompatibleStateImageBehavior = false;
             this.listViewDrinks.View = System.Windows.Forms.View.Details;
@@ -427,17 +516,6 @@
             this.lbl_Drinks.Size = new System.Drawing.Size(81, 29);
             this.lbl_Drinks.TabIndex = 3;
             this.lbl_Drinks.Text = "Drinks";
-            // 
-            // btnUpdate
-            // 
-            this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.Location = new System.Drawing.Point(270, 374);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(90, 30);
-            this.btnUpdate.TabIndex = 12;
-            this.btnUpdate.Text = "&Update";
-            this.btnUpdate.UseVisualStyleBackColor = true;
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // SomerenUI
             // 
@@ -518,6 +596,12 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.Button btnUpdateDrink;
+        private System.Windows.Forms.Button btnDeleteDrink;
+        private System.Windows.Forms.Button btnShowAddDrink;
+        private System.Windows.Forms.Label lblDrinkType;
+        private System.Windows.Forms.TextBox txtDrinkType;
+        private System.Windows.Forms.Button btnAddDrink;
+        private System.Windows.Forms.Button btnBackDrink;
     }
 }

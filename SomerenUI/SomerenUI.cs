@@ -3,6 +3,7 @@ using SomerenModel;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace SomerenUI
@@ -196,15 +197,28 @@ namespace SomerenUI
                     listViewDrinks.Columns.Add("Name", 100);
                     listViewDrinks.Columns.Add("Stock", 100);
                     listViewDrinks.Columns.Add("Price", 100);
+                    listViewDrinks.Columns.Add("Status", 100);
+
 
                     listViewDrinks.View = View.Details;
 
                     foreach (SomerenModel.Drink s in drinksList)
                     {
+                        string status;
+
+                        if (s.Stock < 10)
+                        {
+                            status = "Stock nearly depleted";
+                        }
+                        else
+                        {
+                            status = "Stock sufficient";
+                        }
                         ListViewItem li = new ListViewItem(new string[] {
                         s.Name.ToString(),
                         s.Stock.ToString(),
                         s.SalesPrice.ToString(),
+                        status.ToString(),
                         s.DrinkID.ToString(),
                     });
                         listViewDrinks.Items.Add(li); // Add all the values to the listview
@@ -265,14 +279,14 @@ namespace SomerenUI
 
         private void listViewDrinks_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (this.listViewDrinks.SelectedItems.Count != 1)
+            if (listViewDrinks.SelectedItems.Count != 1)
                 return;
 
             try
             {
-                txtName.Text = this.listViewDrinks.SelectedItems[0].SubItems[0].Text;
-                txtStock.Text = this.listViewDrinks.SelectedItems[0].SubItems[1].Text;
-                txtPrice.Text = this.listViewDrinks.SelectedItems[0].SubItems[2].Text;
+                txtName.Text = listViewDrinks.SelectedItems[0].SubItems[0].Text;
+                txtStock.Text = listViewDrinks.SelectedItems[0].SubItems[1].Text;
+                txtPrice.Text = listViewDrinks.SelectedItems[0].SubItems[2].Text;
             }
             catch (Exception err)
             {
@@ -285,14 +299,12 @@ namespace SomerenUI
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            
-
-            if (this.listViewDrinks.SelectedItems.Count != 1)
+            if (listViewDrinks.SelectedItems.Count != 1)
                 return;
 
             try
             {
-                string drinkID = this.listViewDrinks.SelectedItems[0].SubItems[3].Text;
+                string drinkID = listViewDrinks.SelectedItems[0].SubItems[3].Text;
 
                 // Set up Drink object
                 Drink drink = new Drink();
@@ -319,6 +331,107 @@ namespace SomerenUI
                 throw;
             }
 
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (listViewDrinks.SelectedItems.Count != 1)
+                return;
+
+            try
+            {
+                string drinkID = listViewDrinks.SelectedItems[0].SubItems[4].Text;
+
+                // Set up Drink object
+                Drink drink = new Drink();
+
+                //Delete
+                DrinkService drinkService = new DrinkService();
+                drinkService.DeleteDrink(int.Parse(drinkID));
+
+                //Reset everything after deleting
+                showPanel("Drinks");
+                txtName.Text = "";
+                txtStock.Text = "";
+                txtPrice.Text = "";
+            }
+            catch (Exception err)
+            {
+                appLog.Source = "Application";
+                appLog.WriteEntry(err.Message);
+                throw;
+            }
+
+        }
+
+        private void btnShowAddDrink_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                btnUpdateDrink.Hide();
+                btnShowAddDrink.Hide();
+                btnDeleteDrink.Hide();
+                lblDrinkType.Show();
+                txtDrinkType.Show();
+
+                btnAddDrink.Show();
+                btnBackDrink.Show();
+            }
+            catch (Exception err)
+            {
+                appLog.Source = "Application";
+                appLog.WriteEntry(err.Message);
+                throw;
+            }
+        }
+
+        private void btnAddDrink_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Set up Drink object
+                Drink drink = new Drink();
+
+                drink.Name = txtName.Text;
+                drink.Stock = int.Parse(txtStock.Text);
+                drink.SalesPrice = double.Parse(txtPrice.Text);
+
+                //Add
+                DrinkService drinkService = new DrinkService();
+
+                drink.Name = txtName.Text;
+                drink.Stock = int.Parse(txtStock.Text);
+                drink.SalesPrice = double.Parse(txtPrice.Text);
+                drink.DrinkType = txtDrinkType.Text;
+
+                drinkService.AddDrink(drink);
+
+                //Reset everything after updating
+                showPanel("Drinks");
+                txtName.Text = "";
+                txtStock.Text = "";
+                txtPrice.Text = "";
+                txtDrinkType.Text = "";
+            }
+            catch (Exception err)
+            {
+                appLog.Source = "Application";
+                appLog.WriteEntry(err.Message);
+                throw;
+            }
+        }
+
+        private void btnBackDrink_Click(object sender, EventArgs e)
+        {
+            btnUpdateDrink.Show();
+            btnShowAddDrink.Show();
+            btnDeleteDrink.Show();
+            lblDrinkType.Hide();
+            txtDrinkType.Hide();
+
+            btnAddDrink.Hide();
+            btnBackDrink.Hide();
         }
     }
 }

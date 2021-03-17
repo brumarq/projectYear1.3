@@ -29,7 +29,7 @@ namespace SomerenDAL
             }
             catch (Exception e)
             {
-                appLog.Source = "Openning Connection";
+                appLog.Source = "Application";
                 appLog.WriteEntry(e.Message);
                 throw;
             }
@@ -53,7 +53,7 @@ namespace SomerenDAL
             }
             catch (Exception e)
             {
-                appLog.Source = "Executing Transaction Queries";
+                appLog.Source = "Application";
                 appLog.WriteEntry(e.Message);
                 throw;
             }
@@ -74,7 +74,7 @@ namespace SomerenDAL
             }
             catch (SqlException e)
             {
-                appLog.Source = "Executing Edit Queries";
+                appLog.Source = "Application";
                 appLog.WriteEntry(e.Message);
                 throw;
             }
@@ -103,7 +103,7 @@ namespace SomerenDAL
             }
             catch (SqlException e)
             {
-                appLog.Source = "Executing Select Queries";
+                appLog.Source = "Application";
                 appLog.WriteEntry(e.Message);
                 return null;
                 throw;
