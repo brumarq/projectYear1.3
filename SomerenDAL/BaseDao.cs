@@ -20,6 +20,7 @@ namespace SomerenDAL
 
         protected SqlConnection OpenConnection()
         {
+            //Testing
             try
             {
                 if (conn.State == ConnectionState.Closed || conn.State == ConnectionState.Broken)
