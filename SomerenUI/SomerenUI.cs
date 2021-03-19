@@ -3,7 +3,6 @@ using SomerenModel;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Drawing;
 using System.Windows.Forms;
 
 namespace SomerenUI
@@ -304,7 +303,7 @@ namespace SomerenUI
 
             try
             {
-                string drinkID = listViewDrinks.SelectedItems[0].SubItems[3].Text;
+                string drinkID = listViewDrinks.SelectedItems[0].SubItems[4].Text;
 
                 // Set up Drink object
                 Drink drink = new Drink();
@@ -313,7 +312,7 @@ namespace SomerenUI
                 drink.Name = txtName.Text;
                 drink.Stock = int.Parse(txtStock.Text);
                 drink.SalesPrice = double.Parse(txtPrice.Text);
-                
+
                 //Update
                 DrinkService drinkService = new DrinkService();
                 drinkService.UpdateDrinks(drink);
