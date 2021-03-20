@@ -230,6 +230,10 @@ namespace SomerenUI
                     MessageBox.Show("Something went wrong while loading the drinks: " + e.Message);
                 }
             }
+            else if (panelName == "CashRegister")
+            { 
+                //todo
+            }
         }
 
         private void dashboardToolStripMenuItem_Click(object sender, EventArgs e)
@@ -431,6 +435,12 @@ namespace SomerenUI
 
             btnAddDrink.Hide();
             btnBackDrink.Hide();
+        }
+
+        private void cashRegisterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+            showPanel("CashRegister");
         }
     }
 }
