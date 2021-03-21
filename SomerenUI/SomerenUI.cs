@@ -44,6 +44,7 @@ namespace SomerenUI
                 pnlLecturers.Hide();
                 pnlRooms.Hide();
                 pnlDrinks.Hide();
+                pnlCashRegister.Hide();
 
                 // show students
                 pnlStudents.Show();
@@ -87,6 +88,7 @@ namespace SomerenUI
                 pnlStudents.Hide();
                 pnlRooms.Hide();
                 pnlDrinks.Hide();
+                pnlCashRegister.Hide();
 
                 // show lecturers
                 pnlLecturers.Show();
@@ -131,6 +133,7 @@ namespace SomerenUI
                 pnlLecturers.Hide();
                 pnlStudents.Hide();
                 pnlDrinks.Hide();
+                pnlCashRegister.Hide();
 
                 // show Rooms
                 pnlRooms.Show();
@@ -177,6 +180,7 @@ namespace SomerenUI
                 pnlLecturers.Hide();
                 pnlStudents.Hide();
                 pnlRooms.Hide();
+                pnlCashRegister.Hide();
 
                 // show Rooms
                 pnlDrinks.Show();
@@ -231,9 +235,103 @@ namespace SomerenUI
                 }
             }
             else if (panelName == "CashRegister")
-            { 
-                //todo
+            {
+                // hide all other panels
+                pnlDashboard.Hide();
+                imgDashboard.Hide();
+                pnlLecturers.Hide();
+                pnlStudents.Hide();
+                pnlRooms.Hide();
+                pnlDrinks.Hide();
+                // show Rooms
+                pnlCashRegister.Show();
+
+                try
+                {
+                    // fill the students listview within the students panel with a list of students
+                    StudentService studService = new StudentService(); ;
+                    List<Student> studentList = studService.GetStudents(); ;
+
+                    // clear the listview before filling it again
+                    listViewCashierStudents.Clear();
+
+                    listViewCashierStudents.Columns.Add("Student Number", 100);
+                    listViewCashierStudents.Columns.Add("First Name", 100);
+                    listViewCashierStudents.Columns.Add("Name", 100);
+                    listViewCashierStudents.View = View.Details;
+
+                    foreach (SomerenModel.Student s in studentList)
+                    {
+                        ListViewItem li = new ListViewItem(new string[] {
+                            s.StudentNumber.ToString(),
+                            s.Firstname,
+                            s.Name
+                        });
+                        listViewCashierStudents.Items.Add(li); // Add all the values to the listview
+                    }
+                }
+                catch (Exception e)
+                {
+                    appLog.Source = "Loading Panel Students";
+                    appLog.WriteEntry(e.Message);
+                    MessageBox.Show("Something went wrong while loading the students: " + e.Message);
+                }
+
+                // show Rooms
+                pnlDrinks.Show();
+
+                try
+                {
+                    // fill the Rooms listview within the Rooms panel with a list of Rooms
+                    DrinkService drinkService = new DrinkService();
+                    List<Drink> drinksList = drinkService.GetDrinks();
+
+                    // clear the listview before filling it again
+                    listViewCashierDrinks.Clear();
+
+                    listViewCashierDrinks.FullRowSelect = true;
+
+                    // Add columsn since .Clear() also deletes the columns
+                    listViewCashierDrinks.Columns.Add("Name", 100);
+                    listViewCashierDrinks.Columns.Add("Stock", 100);
+                    listViewCashierDrinks.Columns.Add("Price", 100);
+                    listViewCashierDrinks.Columns.Add("Status", 100);
+
+
+                    listViewCashierDrinks.View = View.Details;
+
+                    foreach (SomerenModel.Drink s in drinksList)
+                    {
+                        string status;
+
+                        if (s.Stock < 10)
+                        {
+                            status = "Stock nearly depleted";
+                        }
+                        else
+                        {
+                            status = "Stock sufficient";
+                        }
+                        ListViewItem li = new ListViewItem(new string[] {
+                        s.Name.ToString(),
+                        s.Stock.ToString(),
+                        s.SalesPrice.ToString(),
+                        status.ToString(),
+                        s.DrinkID.ToString(),
+                    });
+                        listViewCashierDrinks.Items.Add(li); // Add all the values to the listview
+                    }
+                }
+                catch (Exception e)
+                {
+                    appLog.Source = "Application";
+                    appLog.WriteEntry(e.Message);
+                    MessageBox.Show("Something went wrong while loading the drinks: " + e.Message);
+                }
+
             }
+            
+             
         }
 
         private void dashboardToolStripMenuItem_Click(object sender, EventArgs e)
@@ -439,8 +537,12 @@ namespace SomerenUI
 
         private void cashRegisterToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
             showPanel("CashRegister");
+        }
+
+        private void btnBuyDrink_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

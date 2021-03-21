@@ -14,3 +14,4 @@ D:\Inholland.Univ\Year 1\TERM3\Project\projectYear1.3\SomerenModel\obj\Debug\Som
 D:\Inholland.Univ\Year 1\TERM3\Project\projectYear1.3\SomerenModel\obj\Debug\SomerenModel.csproj.CoreCompileInputs.cache
 D:\Inholland.Univ\Year 1\TERM3\Project\projectYear1.3\SomerenModel\obj\Debug\SomerenModel.dll
 D:\Inholland.Univ\Year 1\TERM3\Project\projectYear1.3\SomerenModel\obj\Debug\SomerenModel.pdb
+C:\Users\Mourad\Documents\GitHub\projectYear1.3\SomerenModel\obj\Debug\SomerenModel.csprojAssemblyReference.cache
