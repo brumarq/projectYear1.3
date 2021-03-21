@@ -182,12 +182,11 @@ namespace SomerenUI
                 pnlRooms.Hide();
                 pnlCashRegister.Hide();
 
-                // show Rooms
+                // show Drinks
                 pnlDrinks.Show();
 
                 try
                 {
-                    // fill the Rooms listview within the Rooms panel with a list of Rooms
                     DrinkService drinkService = new DrinkService();
                     List<Drink> drinksList = drinkService.GetDrinks();
 
@@ -243,14 +242,13 @@ namespace SomerenUI
                 pnlStudents.Hide();
                 pnlRooms.Hide();
                 pnlDrinks.Hide();
-                // show Rooms
+                // show Cash Register
                 pnlCashRegister.Show();
 
                 try
                 {
-                    // fill the students listview within the students panel with a list of students
-                    StudentService studService = new StudentService(); ;
-                    List<Student> studentList = studService.GetStudents(); ;
+                    BuyService buyService = new BuyService();
+                    List<Student> studentList = buyService.GetCashierStudents();
 
                     // clear the listview before filling it again
                     listViewCashierStudents.Clear();
@@ -265,27 +263,13 @@ namespace SomerenUI
                         ListViewItem li = new ListViewItem(new string[] {
                             s.StudentNumber.ToString(),
                             s.Firstname,
-                            s.Name
+                            s.Name,
+                            s.StudentID.ToString(),
                         });
                         listViewCashierStudents.Items.Add(li); // Add all the values to the listview
                     }
-                }
-                catch (Exception e)
-                {
-                    appLog.Source = "Loading Panel Students";
-                    appLog.WriteEntry(e.Message);
-                    MessageBox.Show("Something went wrong while loading the students: " + e.Message);
-                }
 
-                // show Rooms
-                pnlDrinks.Show();
-
-                try
-                {
-                    // fill the Rooms listview within the Rooms panel with a list of Rooms
-                    DrinkService drinkService = new DrinkService();
-                    List<Drink> drinksList = drinkService.GetDrinks();
-
+                    List<Drink> drinksList = buyService.GetCashierDrinks();
                     // clear the listview before filling it again
                     listViewCashierDrinks.Clear();
 
@@ -295,43 +279,28 @@ namespace SomerenUI
                     listViewCashierDrinks.Columns.Add("Name", 100);
                     listViewCashierDrinks.Columns.Add("Stock", 100);
                     listViewCashierDrinks.Columns.Add("Price", 100);
-                    listViewCashierDrinks.Columns.Add("Status", 100);
-
 
                     listViewCashierDrinks.View = View.Details;
 
                     foreach (SomerenModel.Drink s in drinksList)
                     {
-                        string status;
-
-                        if (s.Stock < 10)
-                        {
-                            status = "Stock nearly depleted";
-                        }
-                        else
-                        {
-                            status = "Stock sufficient";
-                        }
                         ListViewItem li = new ListViewItem(new string[] {
-                        s.Name.ToString(),
-                        s.Stock.ToString(),
-                        s.SalesPrice.ToString(),
-                        status.ToString(),
-                        s.DrinkID.ToString(),
-                    });
+                            s.Name.ToString(),
+                            s.Stock.ToString(),
+                            s.SalesPrice.ToString(),
+                            s.DrinkID.ToString(),
+                           });
+
                         listViewCashierDrinks.Items.Add(li); // Add all the values to the listview
                     }
                 }
                 catch (Exception e)
                 {
-                    appLog.Source = "Application";
+                    appLog.Source = "Loading Panel Students";
                     appLog.WriteEntry(e.Message);
-                    MessageBox.Show("Something went wrong while loading the drinks: " + e.Message);
+                    MessageBox.Show("Something went wrong while loading the students: " + e.Message);
                 }
-
             }
-            
-             
         }
 
         private void dashboardToolStripMenuItem_Click(object sender, EventArgs e)
@@ -381,7 +350,9 @@ namespace SomerenUI
         private void listViewDrinks_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (listViewDrinks.SelectedItems.Count != 1)
+            {
                 return;
+            }
 
             try
             {
@@ -401,19 +372,22 @@ namespace SomerenUI
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             if (listViewDrinks.SelectedItems.Count != 1)
+            {
                 return;
+            }
 
             try
             {
                 string drinkID = listViewDrinks.SelectedItems[0].SubItems[4].Text;
 
                 // Set up Drink object
-                Drink drink = new Drink();
-
-                drink.DrinkID = int.Parse(drinkID);
-                drink.Name = txtName.Text;
-                drink.Stock = int.Parse(txtStock.Text);
-                drink.SalesPrice = double.Parse(txtPrice.Text);
+                Drink drink = new Drink
+                {
+                    DrinkID = int.Parse(drinkID),
+                    Name = txtName.Text,
+                    Stock = int.Parse(txtStock.Text),
+                    SalesPrice = double.Parse(txtPrice.Text)
+                };
 
                 //Update
                 DrinkService drinkService = new DrinkService();
@@ -437,7 +411,9 @@ namespace SomerenUI
         private void btnDelete_Click(object sender, EventArgs e)
         {
             if (listViewDrinks.SelectedItems.Count != 1)
+            {
                 return;
+            }
 
             try
             {
@@ -492,11 +468,12 @@ namespace SomerenUI
             try
             {
                 // Set up Drink object
-                Drink drink = new Drink();
-
-                drink.Name = txtName.Text;
-                drink.Stock = int.Parse(txtStock.Text);
-                drink.SalesPrice = double.Parse(txtPrice.Text);
+                Drink drink = new Drink
+                {
+                    Name = txtName.Text,
+                    Stock = int.Parse(txtStock.Text),
+                    SalesPrice = double.Parse(txtPrice.Text)
+                };
 
                 //Add
                 DrinkService drinkService = new DrinkService();
@@ -542,7 +519,40 @@ namespace SomerenUI
 
         private void btnBuyDrink_Click(object sender, EventArgs e)
         {
+            if (listViewCashierStudents.SelectedItems.Count != 1 && listViewCashierDrinks.SelectedItems.Count != 1)
+            {
+                return;
+            }
 
+            // Set up Drink object
+            Drink drink = new Drink();
+            Student student = new Student();
+
+            try
+            {
+                student.StudentNumber = int.Parse(listViewCashierStudents.SelectedItems[0].SubItems[0].Text);
+                student.Firstname = listViewCashierStudents.SelectedItems[0].SubItems[1].Text;
+                student.Name = listViewCashierStudents.SelectedItems[0].SubItems[2].Text;
+                student.StudentID = int.Parse(listViewCashierStudents.SelectedItems[0].SubItems[3].Text);
+
+                drink.Name = listViewCashierDrinks.SelectedItems[0].SubItems[0].Text;
+                drink.Stock = int.Parse(listViewCashierDrinks.SelectedItems[0].SubItems[1].Text);
+                drink.SalesPrice = float.Parse(listViewCashierDrinks.SelectedItems[0].SubItems[2].Text);
+                drink.DrinkID = int.Parse(listViewCashierDrinks.SelectedItems[0].SubItems[3].Text);
+
+                //Buy
+                BuyService buyService = new BuyService();
+                buyService.Buy(drink, student);
+
+                //Reset everything after updating
+                showPanel("CashRegister");
+            }
+            catch (Exception err)
+            {
+                appLog.Source = "Application";
+                appLog.WriteEntry(err.Message);
+                throw;
+            }
         }
     }
 }

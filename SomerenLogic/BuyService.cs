@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace SomerenLogic
 {
-    class BuyService
+    public class BuyService
     {
         BuyDao buydb;
         DrinkDao drinkdb;
@@ -14,6 +14,9 @@ namespace SomerenLogic
         public BuyService()
         {
             buydb = new BuyDao();
+            drinkdb = new DrinkDao();
+            studentdb = new StudentDao();
+
         }
 
         public List<Drink> GetCashierDrinks()

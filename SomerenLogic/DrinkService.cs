@@ -15,7 +15,7 @@ namespace SomerenLogic
 
         public List<Drink> GetDrinks()
         {
-            List<Drink> drinks = drinkdb.GetAllDrinks();
+            List<Drink> drinks = drinkdb.GetAllDrinksLimited();
             return drinks;
         }
 

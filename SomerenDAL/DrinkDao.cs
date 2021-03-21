@@ -7,9 +7,16 @@ namespace SomerenDAL
 {
     public class DrinkDao : BaseDao
     {
-        public List<Drink> GetAllDrinks()
+        public List<Drink> GetAllDrinksLimited()
         {
             string query = "SELECT drinkID, stock, name, salesPrice, drinkType FROM [dbo].[Drinks] WHERE stock > 1 AND salesPrice > 1 AND name <> 'Water' AND name <> 'Orangeade' AND name <> 'Cherry juice';";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            return ReadTables(ExecuteSelectQuery(query, sqlParameters));
+        }
+
+        public List<Drink> GetAllDrinks()
+        {
+            string query = "SELECT drinkID, stock, name, salesPrice, drinkType FROM [dbo].[Drinks];";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
