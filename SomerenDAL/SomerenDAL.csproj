@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseDao.cs" />
+    <Compile Include="BuyDao.cs" />
     <Compile Include="DrinkDao.cs" />
     <Compile Include="LecturerDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
