@@ -524,7 +524,7 @@ namespace SomerenUI
                 return;
             }
 
-            // Set up Drink object
+            // Set up Drink and Student objects
             Drink drink = new Drink();
             Student student = new Student();
 
