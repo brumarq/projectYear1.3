@@ -475,13 +475,15 @@ namespace SomerenUI
                     SalesPrice = double.Parse(txtPrice.Text)
                 };
 
+
                 //Add
                 DrinkService drinkService = new DrinkService();
 
                 drink.Name = txtName.Text;
                 drink.Stock = int.Parse(txtStock.Text);
                 drink.SalesPrice = double.Parse(txtPrice.Text);
-                drink.DrinkType = txtDrinkType.Text;
+
+                drink.DrinkType = txtDrinkType.SelectedItem.ToString();
 
                 drinkService.AddDrink(drink);
 
@@ -490,7 +492,6 @@ namespace SomerenUI
                 txtName.Text = "";
                 txtStock.Text = "";
                 txtPrice.Text = "";
-                txtDrinkType.Text = "";
             }
             catch (Exception err)
             {
