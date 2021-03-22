@@ -199,7 +199,7 @@ namespace SomerenUI
                     listViewDrinks.Columns.Add("Name", 100);
                     listViewDrinks.Columns.Add("Stock", 100);
                     listViewDrinks.Columns.Add("Price", 100);
-                    listViewDrinks.Columns.Add("Status", 100);
+                    listViewDrinks.Columns.Add("Status", 150);
 
 
                     listViewDrinks.View = View.Details;
@@ -219,7 +219,7 @@ namespace SomerenUI
                         ListViewItem li = new ListViewItem(new string[] {
                         s.Name.ToString(),
                         s.Stock.ToString(),
-                        s.SalesPrice.ToString(),
+                        s.SalesPrice.ToString("0.00 €"),
                         status.ToString(),
                         s.DrinkID.ToString(),
                     });
@@ -287,7 +287,7 @@ namespace SomerenUI
                         ListViewItem li = new ListViewItem(new string[] {
                             s.Name.ToString(),
                             s.Stock.ToString(),
-                            s.SalesPrice.ToString(),
+                            s.SalesPrice.ToString("0.00 €"),
                             s.DrinkID.ToString(),
                            });
 
@@ -358,7 +358,7 @@ namespace SomerenUI
             {
                 txtName.Text = listViewDrinks.SelectedItems[0].SubItems[0].Text;
                 txtStock.Text = listViewDrinks.SelectedItems[0].SubItems[1].Text;
-                txtPrice.Text = listViewDrinks.SelectedItems[0].SubItems[2].Text;
+                txtPrice.Text = listViewDrinks.SelectedItems[0].SubItems[2].Text.Remove(listViewDrinks.SelectedItems[0].SubItems[2].Text.Length - 1, 1);
             }
             catch (Exception err)
             {
@@ -386,7 +386,7 @@ namespace SomerenUI
                     DrinkID = int.Parse(drinkID),
                     Name = txtName.Text,
                     Stock = int.Parse(txtStock.Text),
-                    SalesPrice = double.Parse(txtPrice.Text)
+                    SalesPrice = float.Parse(txtPrice.Text)
                 };
 
                 //Update
@@ -475,13 +475,15 @@ namespace SomerenUI
                     SalesPrice = double.Parse(txtPrice.Text)
                 };
 
+
                 //Add
                 DrinkService drinkService = new DrinkService();
 
                 drink.Name = txtName.Text;
                 drink.Stock = int.Parse(txtStock.Text);
                 drink.SalesPrice = double.Parse(txtPrice.Text);
-                drink.DrinkType = txtDrinkType.Text;
+
+                drink.DrinkType = txtDrinkType.SelectedItem.ToString();
 
                 drinkService.AddDrink(drink);
 
@@ -490,7 +492,6 @@ namespace SomerenUI
                 txtName.Text = "";
                 txtStock.Text = "";
                 txtPrice.Text = "";
-                txtDrinkType.Text = "";
             }
             catch (Exception err)
             {
@@ -537,7 +538,7 @@ namespace SomerenUI
 
                 drink.Name = listViewCashierDrinks.SelectedItems[0].SubItems[0].Text;
                 drink.Stock = int.Parse(listViewCashierDrinks.SelectedItems[0].SubItems[1].Text);
-                drink.SalesPrice = float.Parse(listViewCashierDrinks.SelectedItems[0].SubItems[2].Text);
+                drink.SalesPrice = float.Parse(listViewCashierDrinks.SelectedItems[0].SubItems[2].Text.Remove(listViewCashierDrinks.SelectedItems[0].SubItems[2].Text.Length - 1, 1));
                 drink.DrinkID = int.Parse(listViewCashierDrinks.SelectedItems[0].SubItems[3].Text);
 
                 //Buy

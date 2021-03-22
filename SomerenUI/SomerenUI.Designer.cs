@@ -62,7 +62,6 @@
             this.btnAddDrink = new System.Windows.Forms.Button();
             this.btnBackDrink = new System.Windows.Forms.Button();
             this.lblDrinkType = new System.Windows.Forms.Label();
-            this.txtDrinkType = new System.Windows.Forms.TextBox();
             this.btnShowAddDrink = new System.Windows.Forms.Button();
             this.btnDeleteDrink = new System.Windows.Forms.Button();
             this.btnUpdateDrink = new System.Windows.Forms.Button();
@@ -81,6 +80,7 @@
             this.listViewCashierStudents = new System.Windows.Forms.ListView();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.txtDrinkType = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.imgDashboard)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.pnlDashboard.SuspendLayout();
@@ -353,10 +353,10 @@
             // 
             // pnlDrinks
             // 
+            this.pnlDrinks.Controls.Add(this.txtDrinkType);
             this.pnlDrinks.Controls.Add(this.btnAddDrink);
             this.pnlDrinks.Controls.Add(this.btnBackDrink);
             this.pnlDrinks.Controls.Add(this.lblDrinkType);
-            this.pnlDrinks.Controls.Add(this.txtDrinkType);
             this.pnlDrinks.Controls.Add(this.btnShowAddDrink);
             this.pnlDrinks.Controls.Add(this.btnDeleteDrink);
             this.pnlDrinks.Controls.Add(this.btnUpdateDrink);
@@ -408,15 +408,6 @@
             this.lblDrinkType.TabIndex = 16;
             this.lblDrinkType.Text = "Drink Type";
             this.lblDrinkType.Visible = false;
-            // 
-            // txtDrinkType
-            // 
-            this.txtDrinkType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDrinkType.Location = new System.Drawing.Point(659, 280);
-            this.txtDrinkType.Name = "txtDrinkType";
-            this.txtDrinkType.Size = new System.Drawing.Size(223, 26);
-            this.txtDrinkType.TabIndex = 15;
-            this.txtDrinkType.Visible = false;
             // 
             // btnShowAddDrink
             // 
@@ -551,7 +542,7 @@
             // btnBuyDrink
             // 
             this.btnBuyDrink.Location = new System.Drawing.Point(266, 369);
-            this.btnBuyDrink.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnBuyDrink.Margin = new System.Windows.Forms.Padding(2);
             this.btnBuyDrink.Name = "btnBuyDrink";
             this.btnBuyDrink.Size = new System.Drawing.Size(168, 63);
             this.btnBuyDrink.TabIndex = 7;
@@ -601,15 +592,29 @@
             this.label4.TabIndex = 3;
             this.label4.Text = "Cash Register";
             // 
+            // txtDrinkType
+            // 
+            this.txtDrinkType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDrinkType.FormattingEnabled = true;
+            this.txtDrinkType.Items.AddRange(new object[] {
+            "non-alcoholic",
+            "alcoholic"});
+            this.txtDrinkType.Location = new System.Drawing.Point(659, 280);
+            this.txtDrinkType.Name = "txtDrinkType";
+            this.txtDrinkType.Size = new System.Drawing.Size(224, 28);
+            this.txtDrinkType.TabIndex = 19;
+            this.txtDrinkType.Text = "non-alcoholic";
+            this.txtDrinkType.Visible = false;
+            // 
             // SomerenUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(962, 505);
+            this.Controls.Add(this.pnlDrinks);
             this.Controls.Add(this.pnlDashboard);
             this.Controls.Add(this.pnlLecturers);
             this.Controls.Add(this.pnlCashRegister);
-            this.Controls.Add(this.pnlDrinks);
             this.Controls.Add(this.pnlStudents);
             this.Controls.Add(this.pnlRooms);
             this.Controls.Add(this.menuStrip1);
@@ -688,7 +693,6 @@
         private System.Windows.Forms.Button btnDeleteDrink;
         private System.Windows.Forms.Button btnShowAddDrink;
         private System.Windows.Forms.Label lblDrinkType;
-        private System.Windows.Forms.TextBox txtDrinkType;
         private System.Windows.Forms.Button btnAddDrink;
         private System.Windows.Forms.Button btnBackDrink;
         private System.Windows.Forms.ToolStripMenuItem cashRegisterToolStripMenuItem;
@@ -698,5 +702,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnBuyDrink;
         private System.Windows.Forms.ListView listViewCashierDrinks;
+        private System.Windows.Forms.ComboBox txtDrinkType;
     }
 }
