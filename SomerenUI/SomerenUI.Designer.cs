@@ -59,6 +59,7 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.lbl_Rooms = new System.Windows.Forms.Label();
             this.pnlDrinks = new System.Windows.Forms.Panel();
+            this.txtDrinkType = new System.Windows.Forms.ComboBox();
             this.btnAddDrink = new System.Windows.Forms.Button();
             this.btnBackDrink = new System.Windows.Forms.Button();
             this.lblDrinkType = new System.Windows.Forms.Label();
@@ -80,7 +81,17 @@
             this.listViewCashierStudents = new System.Windows.Forms.ListView();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtDrinkType = new System.Windows.Forms.ComboBox();
+            this.pnlActivities = new System.Windows.Forms.Panel();
+            this.btnAddActivity = new System.Windows.Forms.Button();
+            this.btnDeleteActivity = new System.Windows.Forms.Button();
+            this.btnUpdateActivity = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtActivityName = new System.Windows.Forms.TextBox();
+            this.listViewActivities = new System.Windows.Forms.ListView();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.lblActivities = new System.Windows.Forms.Label();
+            this.dtTimeOfActivity = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.imgDashboard)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.pnlDashboard.SuspendLayout();
@@ -94,6 +105,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.pnlCashRegister.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            this.pnlActivities.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.SuspendLayout();
             // 
             // imgDashboard
@@ -172,6 +185,7 @@
             this.activitiesToolStripMenuItem.Name = "activitiesToolStripMenuItem";
             this.activitiesToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
             this.activitiesToolStripMenuItem.Text = "Activities";
+            this.activitiesToolStripMenuItem.Click += new System.EventHandler(this.activitiesToolStripMenuItem_Click);
             // 
             // roomsToolStripMenuItem
             // 
@@ -373,6 +387,20 @@
             this.pnlDrinks.Name = "pnlDrinks";
             this.pnlDrinks.Size = new System.Drawing.Size(938, 466);
             this.pnlDrinks.TabIndex = 8;
+            // 
+            // txtDrinkType
+            // 
+            this.txtDrinkType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDrinkType.FormattingEnabled = true;
+            this.txtDrinkType.Items.AddRange(new object[] {
+            "non-alcoholic",
+            "alcoholic"});
+            this.txtDrinkType.Location = new System.Drawing.Point(659, 280);
+            this.txtDrinkType.Name = "txtDrinkType";
+            this.txtDrinkType.Size = new System.Drawing.Size(224, 28);
+            this.txtDrinkType.TabIndex = 19;
+            this.txtDrinkType.Text = "non-alcoholic";
+            this.txtDrinkType.Visible = false;
             // 
             // btnAddDrink
             // 
@@ -592,25 +620,125 @@
             this.label4.TabIndex = 3;
             this.label4.Text = "Cash Register";
             // 
-            // txtDrinkType
+            // pnlActivities
             // 
-            this.txtDrinkType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDrinkType.FormattingEnabled = true;
-            this.txtDrinkType.Items.AddRange(new object[] {
-            "non-alcoholic",
-            "alcoholic"});
-            this.txtDrinkType.Location = new System.Drawing.Point(659, 280);
-            this.txtDrinkType.Name = "txtDrinkType";
-            this.txtDrinkType.Size = new System.Drawing.Size(224, 28);
-            this.txtDrinkType.TabIndex = 19;
-            this.txtDrinkType.Text = "non-alcoholic";
-            this.txtDrinkType.Visible = false;
+            this.pnlActivities.Controls.Add(this.dtTimeOfActivity);
+            this.pnlActivities.Controls.Add(this.btnAddActivity);
+            this.pnlActivities.Controls.Add(this.btnDeleteActivity);
+            this.pnlActivities.Controls.Add(this.btnUpdateActivity);
+            this.pnlActivities.Controls.Add(this.label7);
+            this.pnlActivities.Controls.Add(this.label8);
+            this.pnlActivities.Controls.Add(this.txtActivityName);
+            this.pnlActivities.Controls.Add(this.listViewActivities);
+            this.pnlActivities.Controls.Add(this.pictureBox6);
+            this.pnlActivities.Controls.Add(this.lblActivities);
+            this.pnlActivities.Location = new System.Drawing.Point(5, 24);
+            this.pnlActivities.Name = "pnlActivities";
+            this.pnlActivities.Size = new System.Drawing.Size(938, 466);
+            this.pnlActivities.TabIndex = 10;
+            // 
+            // btnAddActivity
+            // 
+            this.btnAddActivity.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddActivity.Location = new System.Drawing.Point(634, 289);
+            this.btnAddActivity.Name = "btnAddActivity";
+            this.btnAddActivity.Size = new System.Drawing.Size(272, 30);
+            this.btnAddActivity.TabIndex = 14;
+            this.btnAddActivity.Text = "&Add new Drink";
+            this.btnAddActivity.UseVisualStyleBackColor = true;
+            // 
+            // btnDeleteActivity
+            // 
+            this.btnDeleteActivity.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteActivity.Location = new System.Drawing.Point(769, 253);
+            this.btnDeleteActivity.Name = "btnDeleteActivity";
+            this.btnDeleteActivity.Size = new System.Drawing.Size(137, 30);
+            this.btnDeleteActivity.TabIndex = 13;
+            this.btnDeleteActivity.Text = "&Delete";
+            this.btnDeleteActivity.UseVisualStyleBackColor = true;
+            // 
+            // btnUpdateActivity
+            // 
+            this.btnUpdateActivity.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdateActivity.Location = new System.Drawing.Point(634, 253);
+            this.btnUpdateActivity.Name = "btnUpdateActivity";
+            this.btnUpdateActivity.Size = new System.Drawing.Size(129, 30);
+            this.btnUpdateActivity.TabIndex = 12;
+            this.btnUpdateActivity.Text = "&Update";
+            this.btnUpdateActivity.UseVisualStyleBackColor = true;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(572, 208);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(37, 20);
+            this.label7.TabIndex = 10;
+            this.label7.Text = "Day";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(572, 165);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(51, 20);
+            this.label8.TabIndex = 9;
+            this.label8.Text = "Name";
+            // 
+            // txtActivityName
+            // 
+            this.txtActivityName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtActivityName.Location = new System.Drawing.Point(640, 165);
+            this.txtActivityName.Name = "txtActivityName";
+            this.txtActivityName.Size = new System.Drawing.Size(266, 26);
+            this.txtActivityName.TabIndex = 6;
+            // 
+            // listViewActivities
+            // 
+            this.listViewActivities.HideSelection = false;
+            this.listViewActivities.Location = new System.Drawing.Point(16, 42);
+            this.listViewActivities.Name = "listViewActivities";
+            this.listViewActivities.Size = new System.Drawing.Size(502, 409);
+            this.listViewActivities.TabIndex = 5;
+            this.listViewActivities.UseCompatibleStateImageBehavior = false;
+            this.listViewActivities.View = System.Windows.Forms.View.Details;
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = global::SomerenUI.Properties.Resources.someren;
+            this.pictureBox6.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox6.InitialImage")));
+            this.pictureBox6.Location = new System.Drawing.Point(805, 0);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(130, 123);
+            this.pictureBox6.TabIndex = 0;
+            this.pictureBox6.TabStop = false;
+            // 
+            // lblActivities
+            // 
+            this.lblActivities.AutoSize = true;
+            this.lblActivities.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblActivities.Location = new System.Drawing.Point(10, 10);
+            this.lblActivities.Name = "lblActivities";
+            this.lblActivities.Size = new System.Drawing.Size(107, 29);
+            this.lblActivities.TabIndex = 3;
+            this.lblActivities.Text = "Activities";
+            // 
+            // dtTimeOfActivity
+            // 
+            this.dtTimeOfActivity.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtTimeOfActivity.Location = new System.Drawing.Point(640, 208);
+            this.dtTimeOfActivity.Name = "dtTimeOfActivity";
+            this.dtTimeOfActivity.Size = new System.Drawing.Size(266, 26);
+            this.dtTimeOfActivity.TabIndex = 15;
             // 
             // SomerenUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(962, 505);
+            this.Controls.Add(this.pnlActivities);
             this.Controls.Add(this.pnlDrinks);
             this.Controls.Add(this.pnlDashboard);
             this.Controls.Add(this.pnlLecturers);
@@ -644,6 +772,9 @@
             this.pnlCashRegister.ResumeLayout(false);
             this.pnlCashRegister.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            this.pnlActivities.ResumeLayout(false);
+            this.pnlActivities.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -703,5 +834,16 @@
         private System.Windows.Forms.Button btnBuyDrink;
         private System.Windows.Forms.ListView listViewCashierDrinks;
         private System.Windows.Forms.ComboBox txtDrinkType;
+        private System.Windows.Forms.Panel pnlActivities;
+        private System.Windows.Forms.Button btnAddActivity;
+        private System.Windows.Forms.Button btnDeleteActivity;
+        private System.Windows.Forms.Button btnUpdateActivity;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtActivityName;
+        private System.Windows.Forms.ListView listViewActivities;
+        private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.Label lblActivities;
+        private System.Windows.Forms.DateTimePicker dtTimeOfActivity;
     }
 }

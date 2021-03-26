@@ -31,6 +31,10 @@ namespace SomerenUI
                 pnlStudents.Hide();
                 pnlLecturers.Hide();
                 pnlRooms.Hide();
+                pnlLecturers.Hide();
+                pnlDrinks.Hide();
+                pnlCashRegister.Hide();
+                pnlActivities.Hide();
 
                 // show dashboard
                 pnlDashboard.Show();
@@ -45,6 +49,7 @@ namespace SomerenUI
                 pnlRooms.Hide();
                 pnlDrinks.Hide();
                 pnlCashRegister.Hide();
+                pnlActivities.Hide();
 
                 // show students
                 pnlStudents.Show();
@@ -89,6 +94,7 @@ namespace SomerenUI
                 pnlRooms.Hide();
                 pnlDrinks.Hide();
                 pnlCashRegister.Hide();
+                pnlActivities.Hide();
 
                 // show lecturers
                 pnlLecturers.Show();
@@ -134,6 +140,7 @@ namespace SomerenUI
                 pnlStudents.Hide();
                 pnlDrinks.Hide();
                 pnlCashRegister.Hide();
+                pnlActivities.Hide();
 
                 // show Rooms
                 pnlRooms.Show();
@@ -181,6 +188,7 @@ namespace SomerenUI
                 pnlStudents.Hide();
                 pnlRooms.Hide();
                 pnlCashRegister.Hide();
+                pnlActivities.Hide();
 
                 // show Drinks
                 pnlDrinks.Show();
@@ -242,6 +250,7 @@ namespace SomerenUI
                 pnlStudents.Hide();
                 pnlRooms.Hide();
                 pnlDrinks.Hide();
+                pnlActivities.Hide();
                 // show Cash Register
                 pnlCashRegister.Show();
 
@@ -301,6 +310,20 @@ namespace SomerenUI
                     MessageBox.Show("Something went wrong while loading the students: " + e.Message);
                 }
             }
+            else if (panelName == "Activities")
+            {
+                // hide all other panels
+                pnlDashboard.Hide();
+                imgDashboard.Hide();
+                pnlLecturers.Hide();
+                pnlStudents.Hide();
+                pnlRooms.Hide();
+                pnlDrinks.Hide();
+                pnlCashRegister.Hide();
+                // show Activities
+                pnlActivities.Show();
+
+            }
         }
 
         private void dashboardToolStripMenuItem_Click(object sender, EventArgs e)
@@ -337,6 +360,16 @@ namespace SomerenUI
             showPanel("Rooms");
         }
 
+        private void cashRegisterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            showPanel("CashRegister");
+        }
+
+        private void activitiesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            showPanel("Activities");
+        }
+
         private void drinksToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // Reset the text boxes
@@ -366,7 +399,6 @@ namespace SomerenUI
                 appLog.WriteEntry(err.Message);
                 throw;
             }
-
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -405,7 +437,6 @@ namespace SomerenUI
                 appLog.WriteEntry(err.Message);
                 throw;
             }
-
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -438,7 +469,6 @@ namespace SomerenUI
                 appLog.WriteEntry(err.Message);
                 throw;
             }
-
         }
 
         private void btnShowAddDrink_Click(object sender, EventArgs e)
@@ -513,10 +543,7 @@ namespace SomerenUI
             btnBackDrink.Hide();
         }
 
-        private void cashRegisterToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            showPanel("CashRegister");
-        }
+        
 
         private void btnBuyDrink_Click(object sender, EventArgs e)
         {
@@ -554,6 +581,6 @@ namespace SomerenUI
                 appLog.WriteEntry(err.Message);
                 throw;
             }
-        }
+        }        
     }
 }
