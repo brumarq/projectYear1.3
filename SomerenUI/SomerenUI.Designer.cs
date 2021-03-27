@@ -82,6 +82,7 @@
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.pnlActivities = new System.Windows.Forms.Panel();
+            this.dtTimeOfActivity = new System.Windows.Forms.DateTimePicker();
             this.btnAddActivity = new System.Windows.Forms.Button();
             this.btnDeleteActivity = new System.Windows.Forms.Button();
             this.btnUpdateActivity = new System.Windows.Forms.Button();
@@ -91,7 +92,7 @@
             this.listViewActivities = new System.Windows.Forms.ListView();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.lblActivities = new System.Windows.Forms.Label();
-            this.dtTimeOfActivity = new System.Windows.Forms.DateTimePicker();
+            this.lblErrorActivity = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.imgDashboard)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.pnlDashboard.SuspendLayout();
@@ -622,6 +623,7 @@
             // 
             // pnlActivities
             // 
+            this.pnlActivities.Controls.Add(this.lblErrorActivity);
             this.pnlActivities.Controls.Add(this.dtTimeOfActivity);
             this.pnlActivities.Controls.Add(this.btnAddActivity);
             this.pnlActivities.Controls.Add(this.btnDeleteActivity);
@@ -637,6 +639,14 @@
             this.pnlActivities.Size = new System.Drawing.Size(938, 466);
             this.pnlActivities.TabIndex = 10;
             // 
+            // dtTimeOfActivity
+            // 
+            this.dtTimeOfActivity.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtTimeOfActivity.Location = new System.Drawing.Point(640, 208);
+            this.dtTimeOfActivity.Name = "dtTimeOfActivity";
+            this.dtTimeOfActivity.Size = new System.Drawing.Size(266, 26);
+            this.dtTimeOfActivity.TabIndex = 15;
+            // 
             // btnAddActivity
             // 
             this.btnAddActivity.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -646,6 +656,7 @@
             this.btnAddActivity.TabIndex = 14;
             this.btnAddActivity.Text = "&Add new Drink";
             this.btnAddActivity.UseVisualStyleBackColor = true;
+            this.btnAddActivity.Click += new System.EventHandler(this.btnAddActivity_Click);
             // 
             // btnDeleteActivity
             // 
@@ -656,6 +667,7 @@
             this.btnDeleteActivity.TabIndex = 13;
             this.btnDeleteActivity.Text = "&Delete";
             this.btnDeleteActivity.UseVisualStyleBackColor = true;
+            this.btnDeleteActivity.Click += new System.EventHandler(this.btnDeleteActivity_Click);
             // 
             // btnUpdateActivity
             // 
@@ -666,6 +678,7 @@
             this.btnUpdateActivity.TabIndex = 12;
             this.btnUpdateActivity.Text = "&Update";
             this.btnUpdateActivity.UseVisualStyleBackColor = true;
+            this.btnUpdateActivity.Click += new System.EventHandler(this.btnUpdateActivity_Click);
             // 
             // label7
             // 
@@ -697,6 +710,7 @@
             // 
             // listViewActivities
             // 
+            this.listViewActivities.FullRowSelect = true;
             this.listViewActivities.HideSelection = false;
             this.listViewActivities.Location = new System.Drawing.Point(16, 42);
             this.listViewActivities.Name = "listViewActivities";
@@ -704,6 +718,7 @@
             this.listViewActivities.TabIndex = 5;
             this.listViewActivities.UseCompatibleStateImageBehavior = false;
             this.listViewActivities.View = System.Windows.Forms.View.Details;
+            this.listViewActivities.SelectedIndexChanged += new System.EventHandler(this.listViewActivities_SelectedIndexChanged);
             // 
             // pictureBox6
             // 
@@ -725,13 +740,14 @@
             this.lblActivities.TabIndex = 3;
             this.lblActivities.Text = "Activities";
             // 
-            // dtTimeOfActivity
+            // lblErrorActivity
             // 
-            this.dtTimeOfActivity.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtTimeOfActivity.Location = new System.Drawing.Point(640, 208);
-            this.dtTimeOfActivity.Name = "dtTimeOfActivity";
-            this.dtTimeOfActivity.Size = new System.Drawing.Size(266, 26);
-            this.dtTimeOfActivity.TabIndex = 15;
+            this.lblErrorActivity.AutoSize = true;
+            this.lblErrorActivity.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorActivity.Location = new System.Drawing.Point(634, 338);
+            this.lblErrorActivity.Name = "lblErrorActivity";
+            this.lblErrorActivity.Size = new System.Drawing.Size(0, 13);
+            this.lblErrorActivity.TabIndex = 16;
             // 
             // SomerenUI
             // 
@@ -845,5 +861,6 @@
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.Label lblActivities;
         private System.Windows.Forms.DateTimePicker dtTimeOfActivity;
+        private System.Windows.Forms.Label lblErrorActivity;
     }
 }

@@ -305,7 +305,7 @@ namespace SomerenUI
                 }
                 catch (Exception e)
                 {
-                    appLog.Source = "Loading Panel Students";
+                    appLog.Source = "Application";
                     appLog.WriteEntry(e.Message);
                     MessageBox.Show("Something went wrong while loading the students: " + e.Message);
                 }
@@ -323,6 +323,39 @@ namespace SomerenUI
                 // show Activities
                 pnlActivities.Show();
 
+                try
+                {
+                    // fill the Activities listview within the Activities panel with a list of Activities
+                    ActivityService activityService = new ActivityService();
+                    List<Activity> activitiesList = activityService.GetActivities();
+
+                    // clear the listview before filling it again
+                    listViewActivities.Clear();
+
+                    // Add columsn since .Clear() also deletes the columns
+                    listViewActivities.Columns.Add("Activity ID", 100);
+                    listViewActivities.Columns.Add("Name", 100);
+                    listViewActivities.Columns.Add("Date", 100);
+
+                    listViewActivities.View = View.Details;
+
+                    foreach (SomerenModel.Activity s in activitiesList)
+                    {
+                        ListViewItem li = new ListViewItem(new string[] {
+                        s.ActivityID.ToString(),
+                        s.Name,
+                        s.Date.ToString("dd-MM-yyyy"),
+
+                    });
+                        listViewActivities.Items.Add(li); // Add all the values to the listview
+                    }
+                }
+                catch (Exception e)
+                {
+                    appLog.Source = "Application";
+                    appLog.WriteEntry(e.Message);
+                    MessageBox.Show("Something went wrong while loading the rooms: " + e.Message);
+                }
             }
         }
 
@@ -502,18 +535,12 @@ namespace SomerenUI
                 {
                     Name = txtName.Text,
                     Stock = int.Parse(txtStock.Text),
-                    SalesPrice = double.Parse(txtPrice.Text)
+                    SalesPrice = double.Parse(txtPrice.Text),
+                    DrinkType = txtDrinkType.SelectedItem.ToString(),
                 };
-
 
                 //Add
                 DrinkService drinkService = new DrinkService();
-
-                drink.Name = txtName.Text;
-                drink.Stock = int.Parse(txtStock.Text);
-                drink.SalesPrice = double.Parse(txtPrice.Text);
-
-                drink.DrinkType = txtDrinkType.SelectedItem.ToString();
 
                 drinkService.AddDrink(drink);
 
@@ -542,8 +569,6 @@ namespace SomerenUI
             btnAddDrink.Hide();
             btnBackDrink.Hide();
         }
-
-        
 
         private void btnBuyDrink_Click(object sender, EventArgs e)
         {
@@ -581,6 +606,133 @@ namespace SomerenUI
                 appLog.WriteEntry(err.Message);
                 throw;
             }
-        }        
+        }
+
+        /* ------------------   
+         * ----Activities----
+         * ------------------ */
+
+        private void listViewActivities_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listViewActivities.SelectedItems.Count != 1)
+                return;
+
+            try
+            {
+                txtActivityName.Text = listViewActivities.SelectedItems[0].SubItems[1].Text;
+                dtTimeOfActivity.Value = DateTime.Parse(listViewActivities.SelectedItems[0].SubItems[2].Text);
+            }
+            catch (Exception err)
+            {
+                appLog.Source = "Application";
+                appLog.WriteEntry(err.Message);
+                lblErrorActivity.Text = err.Message;
+            }
+        }
+
+        private void btnUpdateActivity_Click(object sender, EventArgs e)
+        {
+            if (listViewActivities.SelectedItems.Count != 1)
+            {
+                lblErrorActivity.Text = "Please select an Activity to update!";
+                return;
+            }
+
+            try
+            {
+                int activityId = int.Parse(listViewActivities.SelectedItems[0].SubItems[0].Text);
+
+                // Set up activity object
+                Activity activity = new Activity
+                {
+                    ActivityID = activityId,
+                    Name = txtActivityName.Text,
+                    Date = dtTimeOfActivity.Value,
+                };
+
+                //Update
+                ActivityService activityService = new ActivityService();
+                activityService.UpdateActivities(activity);
+
+                //Reset everything after updating
+                showPanel("Activities");
+                txtActivityName.Text = "";
+                lblErrorActivity.Text = "";
+            }
+            catch (Exception err)
+            {
+                appLog.Source = "Application";
+                appLog.WriteEntry(err.Message);
+                lblErrorActivity.Text = err.Message;
+            }
+        }
+
+        private void btnDeleteActivity_Click(object sender, EventArgs e)
+        {
+            if (listViewActivities.SelectedItems.Count < 1)
+            {
+                lblErrorActivity.Text = "Please select one or multiple activities to delete!";
+                return;
+            }
+
+            try
+            {
+                
+                int activityID = int.Parse(listViewActivities.SelectedItems[0].SubItems[0].Text);
+
+                //Delete
+                ActivityService activityService = new ActivityService();
+
+                foreach (ListViewItem item in listViewActivities.SelectedItems)
+                {
+                    activityService.DeleteActivity(int.Parse(item.SubItems[0].Text));
+                }
+
+                //Reset everything after updating
+                showPanel("Activities");
+                txtActivityName.Text = "";
+                lblErrorActivity.Text = "";
+            }
+            catch (Exception err)
+            {
+                appLog.Source = "Application";
+                appLog.WriteEntry(err.Message);
+                lblErrorActivity.Text = err.Message;
+            }
+        }
+
+        private void btnAddActivity_Click(object sender, EventArgs e)
+        {
+            if (txtActivityName.Text == "")
+            {
+                lblErrorActivity.Text = "Please enter a name for the activity!";
+                return;
+            }
+
+            try
+            {
+                // Set up Drink object
+                Activity activity = new Activity
+                {
+                    Name = txtActivityName.Text,
+                    Date = dtTimeOfActivity.Value,
+                };
+
+                //Add
+                ActivityService activityService = new ActivityService();
+                activityService.AddActivity(activity);
+
+                //Reset everything after updating
+                showPanel("Activities");
+                txtActivityName.Text = "";
+                lblErrorActivity.Text = "";
+            }
+            catch (Exception err)
+            {
+                appLog.Source = "Application";
+                appLog.WriteEntry(err.Message);
+                lblErrorActivity.Text = err.Message;
+            }
+        }
     }
 }

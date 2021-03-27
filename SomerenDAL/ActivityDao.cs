@@ -20,10 +20,11 @@ namespace SomerenDAL
 
         public void Update(Activity activity)
         {
-            string query = "UPDATE Activities SET name = @name, date = @date WHERE drinkID=@drinkID";
+            string query = "UPDATE Activities SET name = @name, date = @date WHERE activityID=@activityID";
             SqlParameter[] sqlParameters = {
+                new SqlParameter("@activityID", activity.ActivityID),
                 new SqlParameter("@name", activity.Name),
-                new SqlParameter("@stock", activity.Date),
+                new SqlParameter("@date", activity.Date),
             };
 
             ExecuteEditQuery(query, sqlParameters);

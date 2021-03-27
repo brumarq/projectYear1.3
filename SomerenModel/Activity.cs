@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SomerenModel
 {
-    public class Activities
+    public class Activity
     {
         public int ActivityID { get; set; }
         public string Name { get; set; }
