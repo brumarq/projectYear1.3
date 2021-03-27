@@ -677,21 +677,30 @@ namespace SomerenUI
 
             try
             {
-                
                 int activityID = int.Parse(listViewActivities.SelectedItems[0].SubItems[0].Text);
 
                 //Delete
                 ActivityService activityService = new ActivityService();
 
-                foreach (ListViewItem item in listViewActivities.SelectedItems)
-                {
-                    activityService.DeleteActivity(int.Parse(item.SubItems[0].Text));
-                }
+                //Message Box to confirm 
+                DialogResult result = MessageBox.Show("Are you sure you want to delete the selected items?", "Delete confirmation", MessageBoxButtons.YesNo);
 
-                //Reset everything after updating
-                showPanel("Activities");
-                txtActivityName.Text = "";
-                lblErrorActivity.Text = "";
+                if (result == DialogResult.Yes)
+                {
+                    foreach (ListViewItem item in listViewActivities.SelectedItems)
+                    {
+                        activityService.DeleteActivity(int.Parse(item.SubItems[0].Text));
+                    }
+
+                    //Reset everything after updating
+                    showPanel("Activities");
+                    txtActivityName.Text = "";
+                    lblErrorActivity.Text = "";
+                }
+                else
+                {
+                    return;
+                }
             }
             catch (Exception err)
             {
@@ -711,7 +720,7 @@ namespace SomerenUI
 
             try
             {
-                // Set up Drink object
+                // Set up Activity object
                 Activity activity = new Activity
                 {
                     Name = txtActivityName.Text,
