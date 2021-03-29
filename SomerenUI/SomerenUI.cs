@@ -21,6 +21,12 @@ namespace SomerenUI
             showPanel("Dashboard");
         }
 
+        private void activitySupervisorsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            showPanel("ActivitySupervisors");
+        }
+
+
         private void showPanel(string panelName)
         {
             EventLog appLog = new EventLog("Application"); // Initiate EventLog
@@ -35,7 +41,8 @@ namespace SomerenUI
                 pnlDrinks.Hide();
                 pnlCashRegister.Hide();
                 pnlActivities.Hide();
-                pnlActivityParticipants.Hide();
+                pnlActivitySupervisors.Hide();
+                //pnlActivityParticipants.Hide();
 
                 // show dashboard
                 pnlDashboard.Show();
@@ -51,7 +58,8 @@ namespace SomerenUI
                 pnlDrinks.Hide();
                 pnlCashRegister.Hide();
                 pnlActivities.Hide();
-                pnlActivityParticipants.Hide();
+                pnlActivitySupervisors.Hide();
+                //pnlActivityParticipants.Hide();
 
                 // show students
                 pnlStudents.Show();
@@ -97,7 +105,8 @@ namespace SomerenUI
                 pnlDrinks.Hide();
                 pnlCashRegister.Hide();
                 pnlActivities.Hide();
-                pnlActivityParticipants.Hide();
+                pnlActivitySupervisors.Hide();
+                //pnlActivityParticipants.Hide();
 
                 // show lecturers
                 pnlLecturers.Show();
@@ -144,7 +153,8 @@ namespace SomerenUI
                 pnlDrinks.Hide();
                 pnlCashRegister.Hide();
                 pnlActivities.Hide();
-                pnlActivityParticipants.Hide();
+                pnlActivitySupervisors.Hide();
+                //pnlActivityParticipants.Hide();
 
                 // show Rooms
                 pnlRooms.Show();
@@ -193,7 +203,8 @@ namespace SomerenUI
                 pnlRooms.Hide();
                 pnlCashRegister.Hide();
                 pnlActivities.Hide();
-                pnlActivityParticipants.Hide();
+                pnlActivitySupervisors.Hide();
+                //pnlActivityParticipants.Hide();
 
                 // show Drinks
                 pnlDrinks.Show();
@@ -256,7 +267,8 @@ namespace SomerenUI
                 pnlRooms.Hide();
                 pnlDrinks.Hide();
                 pnlActivities.Hide();
-                pnlActivityParticipants.Hide();
+                pnlActivitySupervisors.Hide();
+                //pnlActivityParticipants.Hide();
                 // show Cash Register
                 pnlCashRegister.Show();
 
@@ -328,11 +340,11 @@ namespace SomerenUI
                 pnlActivities.Hide();
                 pnlCashRegister.Hide();
                 // show Cash Register
-                pnlActivityParticipants.Show();
+                //pnlActivityParticipants.Show();
                 try
                 {
                     // fill the students listview within the students panel with a list of students
-                    StudentService studService = new StudentService(); ;
+                    /*StudentService studService = new StudentService(); ;
                     List<Student> studentList = studService.GetStudents(); ;
 
                     // clear the listview before filling it again
@@ -351,7 +363,7 @@ namespace SomerenUI
                             s.Name
                         });
                         listActivityParticipants.Items.Add(li); // Add all the values to the listview
-                    }
+                    }*/
                 }
                 catch (Exception e)
                 {
@@ -370,7 +382,8 @@ namespace SomerenUI
                 pnlRooms.Hide();
                 pnlDrinks.Hide();
                 pnlCashRegister.Hide();
-                pnlActivityParticipants.Hide();
+                pnlActivitySupervisors.Hide();
+                //pnlActivityParticipants.Hide();
                 // show Activities
                 pnlActivities.Show();
 
@@ -399,6 +412,87 @@ namespace SomerenUI
 
                     });
                         listViewActivities.Items.Add(li); // Add all the values to the listview
+                    }
+                }
+                catch (Exception e)
+                {
+                    appLog.Source = "Application";
+                    appLog.WriteEntry(e.Message);
+                    MessageBox.Show("Something went wrong while loading the rooms: " + e.Message);
+                }
+            }
+
+            else if (panelName == "ActivitySupervisors")
+            {
+                // hide all other panels
+                pnlDashboard.Hide();
+                imgDashboard.Hide();
+                pnlLecturers.Hide();
+                pnlStudents.Hide();
+                pnlRooms.Hide();
+                pnlDrinks.Hide();
+                pnlCashRegister.Hide();
+                pnlActivities.Hide();
+                // show Activities
+                pnlActivitySupervisors.Show();
+
+                try
+                {
+                    // fill the lecturers listview within the lecturers panel with a list of lecturers
+                    LecturerService lecturerService = new LecturerService();
+                    List<Teacher> lecturersList = lecturerService.GetTeachers();
+
+                    // clear the listview before filling it again
+                    listViewActivityParticipants.Clear();
+
+                    // Add columsn since .Clear() also deletes the columns
+                    listViewActivityParticipants.Columns.Add("Lecturer ID", 100);
+                    listViewActivityParticipants.Columns.Add("First Name", 100);
+                    listViewActivityParticipants.Columns.Add("Name", 100);
+                    listViewActivityParticipants.View = View.Details;
+
+                    foreach (SomerenModel.Teacher s in lecturersList)
+                    {
+                        ListViewItem li = new ListViewItem(new string[] {
+                        s.TeacherNumber.ToString(),
+                        s.FirstName,
+                        s.Name
+                    });
+                        listViewActivityParticipants.Items.Add(li); // Add all the values to the listview
+                    }
+                }
+                catch (Exception e)
+                {
+                    appLog.Source = "Loading Panel Teachers";
+                    appLog.WriteEntry(e.Message);
+                    MessageBox.Show("Something went wrong while loading the teachers: " + e.Message);
+                }
+
+                try
+                {
+                    // fill the Activities listview within the Activities panel with a list of Activities
+                    ActivityService activityService = new ActivityService();
+                    List<Activity> activitiesList = activityService.GetActivities();
+
+                    // clear the listview before filling it again
+                    listViewActivitiesForActivitySup.Clear();
+
+                    // Add columsn since .Clear() also deletes the columns
+                    listViewActivitiesForActivitySup.Columns.Add("Activity ID", 100);
+                    listViewActivitiesForActivitySup.Columns.Add("Name", 100);
+                    listViewActivitiesForActivitySup.Columns.Add("Date", 100);
+
+                    listViewActivitiesForActivitySup.View = View.Details;
+
+                    foreach (SomerenModel.Activity s in activitiesList)
+                    {
+                        ListViewItem li = new ListViewItem(new string[] {
+                        s.ActivityID.ToString(),
+                        s.Name,
+                        s.Date.ToString("dd-MM-yyyy"),
+
+                    });
+                        listViewActivitiesForActivitySup.Items.Add(li); // Add all the values to the listview
                     }
                 }
                 catch (Exception e)
@@ -875,3 +969,5 @@ namespace SomerenUI
         }
     }
 }
+
+
