@@ -41,6 +41,7 @@
             this.roomsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.drinksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cashRegisterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.activityParticipantsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlDashboard = new System.Windows.Forms.Panel();
             this.lbl_Dashboard = new System.Windows.Forms.Label();
             this.pnlStudents = new System.Windows.Forms.Panel();
@@ -82,6 +83,7 @@
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.pnlActivities = new System.Windows.Forms.Panel();
+            this.lblErrorActivity = new System.Windows.Forms.Label();
             this.dtTimeOfActivity = new System.Windows.Forms.DateTimePicker();
             this.btnAddActivity = new System.Windows.Forms.Button();
             this.btnDeleteActivity = new System.Windows.Forms.Button();
@@ -92,7 +94,18 @@
             this.listViewActivities = new System.Windows.Forms.ListView();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.lblActivities = new System.Windows.Forms.Label();
-            this.lblErrorActivity = new System.Windows.Forms.Label();
+            this.pnlActivityParticipants = new System.Windows.Forms.Panel();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.btn_addParticipant = new System.Windows.Forms.Button();
+            this.btn_DeletePart = new System.Windows.Forms.Button();
+            this.btn_UpdatePart = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.listActivityParticipants = new System.Windows.Forms.ListView();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.label10 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.imgDashboard)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.pnlDashboard.SuspendLayout();
@@ -108,6 +121,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.pnlActivities.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            this.pnlActivityParticipants.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.SuspendLayout();
             // 
             // imgDashboard
@@ -129,7 +144,8 @@
             this.activitiesToolStripMenuItem,
             this.roomsToolStripMenuItem,
             this.drinksToolStripMenuItem,
-            this.cashRegisterToolStripMenuItem});
+            this.cashRegisterToolStripMenuItem,
+            this.activityParticipantsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
@@ -208,6 +224,13 @@
             this.cashRegisterToolStripMenuItem.Size = new System.Drawing.Size(87, 20);
             this.cashRegisterToolStripMenuItem.Text = "Cash register";
             this.cashRegisterToolStripMenuItem.Click += new System.EventHandler(this.cashRegisterToolStripMenuItem_Click);
+            // 
+            // activityParticipantsToolStripMenuItem
+            // 
+            this.activityParticipantsToolStripMenuItem.Name = "activityParticipantsToolStripMenuItem";
+            this.activityParticipantsToolStripMenuItem.Size = new System.Drawing.Size(124, 20);
+            this.activityParticipantsToolStripMenuItem.Text = "Activity Participants";
+            this.activityParticipantsToolStripMenuItem.Click += new System.EventHandler(this.activityParticipantsToolStripMenuItem_Click);
             // 
             // pnlDashboard
             // 
@@ -639,6 +662,15 @@
             this.pnlActivities.Size = new System.Drawing.Size(938, 466);
             this.pnlActivities.TabIndex = 10;
             // 
+            // lblErrorActivity
+            // 
+            this.lblErrorActivity.AutoSize = true;
+            this.lblErrorActivity.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorActivity.Location = new System.Drawing.Point(634, 338);
+            this.lblErrorActivity.Name = "lblErrorActivity";
+            this.lblErrorActivity.Size = new System.Drawing.Size(0, 13);
+            this.lblErrorActivity.TabIndex = 16;
+            // 
             // dtTimeOfActivity
             // 
             this.dtTimeOfActivity.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -740,20 +772,137 @@
             this.lblActivities.TabIndex = 3;
             this.lblActivities.Text = "Activities";
             // 
-            // lblErrorActivity
+            // pnlActivityParticipants
             // 
-            this.lblErrorActivity.AutoSize = true;
-            this.lblErrorActivity.ForeColor = System.Drawing.Color.Red;
-            this.lblErrorActivity.Location = new System.Drawing.Point(634, 338);
-            this.lblErrorActivity.Name = "lblErrorActivity";
-            this.lblErrorActivity.Size = new System.Drawing.Size(0, 13);
-            this.lblErrorActivity.TabIndex = 16;
+            this.pnlActivityParticipants.Controls.Add(this.dateTimePicker1);
+            this.pnlActivityParticipants.Controls.Add(this.btn_addParticipant);
+            this.pnlActivityParticipants.Controls.Add(this.btn_DeletePart);
+            this.pnlActivityParticipants.Controls.Add(this.btn_UpdatePart);
+            this.pnlActivityParticipants.Controls.Add(this.label6);
+            this.pnlActivityParticipants.Controls.Add(this.label9);
+            this.pnlActivityParticipants.Controls.Add(this.textBox1);
+            this.pnlActivityParticipants.Controls.Add(this.label5);
+            this.pnlActivityParticipants.Controls.Add(this.listActivityParticipants);
+            this.pnlActivityParticipants.Controls.Add(this.pictureBox7);
+            this.pnlActivityParticipants.Controls.Add(this.label10);
+            this.pnlActivityParticipants.Location = new System.Drawing.Point(12, 19);
+            this.pnlActivityParticipants.Name = "pnlActivityParticipants";
+            this.pnlActivityParticipants.Size = new System.Drawing.Size(938, 466);
+            this.pnlActivityParticipants.TabIndex = 18;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker1.Location = new System.Drawing.Point(631, 231);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(266, 26);
+            this.dateTimePicker1.TabIndex = 23;
+            // 
+            // btn_addParticipant
+            // 
+            this.btn_addParticipant.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_addParticipant.Location = new System.Drawing.Point(625, 312);
+            this.btn_addParticipant.Name = "btn_addParticipant";
+            this.btn_addParticipant.Size = new System.Drawing.Size(272, 30);
+            this.btn_addParticipant.TabIndex = 22;
+            this.btn_addParticipant.Text = "&Add new Participant";
+            this.btn_addParticipant.UseVisualStyleBackColor = true;
+            // 
+            // btn_DeletePart
+            // 
+            this.btn_DeletePart.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_DeletePart.Location = new System.Drawing.Point(760, 276);
+            this.btn_DeletePart.Name = "btn_DeletePart";
+            this.btn_DeletePart.Size = new System.Drawing.Size(137, 30);
+            this.btn_DeletePart.TabIndex = 21;
+            this.btn_DeletePart.Text = "&Delete";
+            this.btn_DeletePart.UseVisualStyleBackColor = true;
+            // 
+            // btn_UpdatePart
+            // 
+            this.btn_UpdatePart.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_UpdatePart.Location = new System.Drawing.Point(625, 276);
+            this.btn_UpdatePart.Name = "btn_UpdatePart";
+            this.btn_UpdatePart.Size = new System.Drawing.Size(129, 30);
+            this.btn_UpdatePart.TabIndex = 20;
+            this.btn_UpdatePart.Text = "&Update";
+            this.btn_UpdatePart.UseVisualStyleBackColor = true;
+            this.btn_UpdatePart.Click += new System.EventHandler(this.btn_UpdatePart_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(563, 231);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(37, 20);
+            this.label6.TabIndex = 19;
+            this.label6.Text = "Day";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(563, 188);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(51, 20);
+            this.label9.TabIndex = 18;
+            this.label9.Text = "Name";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(631, 188);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(266, 26);
+            this.textBox1.TabIndex = 17;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.Red;
+            this.label5.Location = new System.Drawing.Point(634, 338);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(0, 13);
+            this.label5.TabIndex = 16;
+            // 
+            // listActivityParticipants
+            // 
+            this.listActivityParticipants.FullRowSelect = true;
+            this.listActivityParticipants.HideSelection = false;
+            this.listActivityParticipants.Location = new System.Drawing.Point(16, 42);
+            this.listActivityParticipants.Name = "listActivityParticipants";
+            this.listActivityParticipants.Size = new System.Drawing.Size(502, 409);
+            this.listActivityParticipants.TabIndex = 5;
+            this.listActivityParticipants.UseCompatibleStateImageBehavior = false;
+            this.listActivityParticipants.View = System.Windows.Forms.View.Details;
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Image = global::SomerenUI.Properties.Resources.someren;
+            this.pictureBox7.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox7.InitialImage")));
+            this.pictureBox7.Location = new System.Drawing.Point(805, 0);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(130, 123);
+            this.pictureBox7.TabIndex = 0;
+            this.pictureBox7.TabStop = false;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(10, 10);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(238, 29);
+            this.label10.TabIndex = 3;
+            this.label10.Text = "Activities Participants";
             // 
             // SomerenUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(962, 505);
+            this.Controls.Add(this.pnlActivityParticipants);
             this.Controls.Add(this.pnlActivities);
             this.Controls.Add(this.pnlDrinks);
             this.Controls.Add(this.pnlDashboard);
@@ -791,6 +940,9 @@
             this.pnlActivities.ResumeLayout(false);
             this.pnlActivities.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            this.pnlActivityParticipants.ResumeLayout(false);
+            this.pnlActivityParticipants.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -862,5 +1014,18 @@
         private System.Windows.Forms.Label lblActivities;
         private System.Windows.Forms.DateTimePicker dtTimeOfActivity;
         private System.Windows.Forms.Label lblErrorActivity;
+        private System.Windows.Forms.ToolStripMenuItem activityParticipantsToolStripMenuItem;
+        private System.Windows.Forms.Panel pnlActivityParticipants;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Button btn_addParticipant;
+        private System.Windows.Forms.Button btn_DeletePart;
+        private System.Windows.Forms.Button btn_UpdatePart;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ListView listActivityParticipants;
+        private System.Windows.Forms.PictureBox pictureBox7;
+        private System.Windows.Forms.Label label10;
     }
 }

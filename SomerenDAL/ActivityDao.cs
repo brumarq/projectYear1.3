@@ -67,5 +67,17 @@ namespace SomerenDAL
             }
             return activities;
         }
+        public void GetByStudentID(Activity activity)
+        {
+            string query = "Select activityID name date, name = @name, date = @date WHERE activityID=@activityID";
+            SqlParameter[] sqlParameters = {
+                new SqlParameter("@activityID", activity.ActivityID),
+                new SqlParameter("@name", activity.Name),
+                new SqlParameter("@date", activity.Date),
+            };
+
+            ExecuteEditQuery(query, sqlParameters);
+        }
+
     }
 }
