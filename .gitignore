@@ -338,3 +338,6 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+SomerenLogic/obj/Debug/SomerenLogic.csprojAssemblyReference.cache
+SomerenLogic/obj/Debug/SomerenLogic.dll
+SomerenLogic/obj/Debug/SomerenLogic.pdb

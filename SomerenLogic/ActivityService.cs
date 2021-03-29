@@ -18,23 +18,23 @@ namespace SomerenLogic
         }
         public List<Activity> GetActivities()
         {
-            List<Activity> drinks = activitydb.GetActivities();
-            return drinks;
+            List<Activity> activities = activitydb.GetActivities();
+            return activities;
         }
 
-        public void UpdateActivities(Activity drink)
+        public void UpdateActivities(Activity activity)
         {
-            activitydb.Update(drink);
+            activitydb.Update(activity);
         }
 
-        public void DeleteActivity(int drinkID)
+        public void DeleteActivity(Activity activity)
         {
-            activitydb.Delete(drinkID);
+            activitydb.Delete(activity);
         }
 
-        public void AddActivity(Activity drink)
+        public void AddActivity(Activity activity)
         {
-            activitydb.Add(drink);
+            activitydb.Add(activity);
         }
     }
 }

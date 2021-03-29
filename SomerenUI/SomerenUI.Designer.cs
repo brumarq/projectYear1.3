@@ -719,7 +719,7 @@
             this.btnAddActivity.Name = "btnAddActivity";
             this.btnAddActivity.Size = new System.Drawing.Size(363, 37);
             this.btnAddActivity.TabIndex = 14;
-            this.btnAddActivity.Text = "&Add new Drink";
+            this.btnAddActivity.Text = "&Add new Activity";
             this.btnAddActivity.UseVisualStyleBackColor = true;
             this.btnAddActivity.Click += new System.EventHandler(this.btnAddActivity_Click);
             // 
