@@ -10,7 +10,7 @@ namespace SomerenDAL
 {
     public class ParticipantsDAO: BaseDao
     {
-            public List<Participants> GetAllParticipates()
+            /*public List<Participants> GetAllParticipates()
             {
                 List<Participants> participantsList = new List<Participants>();
 
@@ -82,6 +82,6 @@ namespace SomerenDAL
                 cmd.Parameters.AddWithValue("@lID", sid);
                 cmd.Parameters.AddWithValue("@aID", id);
                 cmd.ExecuteNonQuery();
-            }
+            }*/
     }
 }
