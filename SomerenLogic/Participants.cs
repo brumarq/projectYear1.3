@@ -9,7 +9,7 @@ namespace SomerenLogic
 {
     class Participants
     {
-            ParticipantsDAO participants_db = new ParticipantsDAO();
+            //ParticipantsDAO participants_db = new ParticipantsDAO();
             /*public List<Participants> GetParticipantsbyid(int id)
             {
             List<Participants> participants = participants_db.GetallparticipatesByID(id);
