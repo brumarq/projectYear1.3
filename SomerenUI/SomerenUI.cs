@@ -35,6 +35,7 @@ namespace SomerenUI
                 pnlDrinks.Hide();
                 pnlCashRegister.Hide();
                 pnlActivities.Hide();
+                pnlActivityParticipants.Hide();
 
                 // show dashboard
                 pnlDashboard.Show();
@@ -50,6 +51,7 @@ namespace SomerenUI
                 pnlDrinks.Hide();
                 pnlCashRegister.Hide();
                 pnlActivities.Hide();
+                pnlActivityParticipants.Hide();
 
                 // show students
                 pnlStudents.Show();
@@ -95,6 +97,7 @@ namespace SomerenUI
                 pnlDrinks.Hide();
                 pnlCashRegister.Hide();
                 pnlActivities.Hide();
+                pnlActivityParticipants.Hide();
 
                 // show lecturers
                 pnlLecturers.Show();
@@ -141,6 +144,7 @@ namespace SomerenUI
                 pnlDrinks.Hide();
                 pnlCashRegister.Hide();
                 pnlActivities.Hide();
+                pnlActivityParticipants.Hide();
 
                 // show Rooms
                 pnlRooms.Show();
@@ -189,6 +193,7 @@ namespace SomerenUI
                 pnlRooms.Hide();
                 pnlCashRegister.Hide();
                 pnlActivities.Hide();
+                pnlActivityParticipants.Hide();
 
                 // show Drinks
                 pnlDrinks.Show();
@@ -251,6 +256,7 @@ namespace SomerenUI
                 pnlRooms.Hide();
                 pnlDrinks.Hide();
                 pnlActivities.Hide();
+                pnlActivityParticipants.Hide();
                 // show Cash Register
                 pnlCashRegister.Show();
 
@@ -310,6 +316,50 @@ namespace SomerenUI
                     MessageBox.Show("Something went wrong while loading the students: " + e.Message);
                 }
             }
+            else if (panelName == "ActivityParticipants")
+            {
+                // hide all other panels
+                pnlDashboard.Hide();
+                imgDashboard.Hide();
+                pnlLecturers.Hide();
+                pnlStudents.Hide();
+                pnlRooms.Hide();
+                pnlDrinks.Hide();
+                pnlActivities.Hide();
+                pnlCashRegister.Hide();
+                // show Cash Register
+                pnlActivityParticipants.Show();
+                try
+                {
+                    // fill the students listview within the students panel with a list of students
+                    StudentService studService = new StudentService(); ;
+                    List<Student> studentList = studService.GetStudents(); ;
+
+                    // clear the listview before filling it again
+                    listActivityParticipants.Clear();
+
+                    listActivityParticipants.Columns.Add("Student Number", 100);
+                    listActivityParticipants.Columns.Add("First Name", 100);
+                    listActivityParticipants.Columns.Add("Name", 100);
+                    listActivityParticipants.View = View.Details;
+
+                    foreach (SomerenModel.Student s in studentList)
+                    {
+                        ListViewItem li = new ListViewItem(new string[] {
+                            s.StudentNumber.ToString(),
+                            s.Firstname,
+                            s.Name
+                        });
+                        listActivityParticipants.Items.Add(li); // Add all the values to the listview
+                    }
+                }
+                catch (Exception e)
+                {
+                    appLog.Source = "Loading Panel Students";
+                    appLog.WriteEntry(e.Message);
+                    MessageBox.Show("Something went wrong while loading the students: " + e.Message);
+                }
+            }
             else if (panelName == "Activities")
             {
                 // hide all other panels
@@ -320,6 +370,7 @@ namespace SomerenUI
                 pnlRooms.Hide();
                 pnlDrinks.Hide();
                 pnlCashRegister.Hide();
+                pnlActivityParticipants.Hide();
                 // show Activities
                 pnlActivities.Show();
 
@@ -401,6 +452,10 @@ namespace SomerenUI
         private void activitiesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             showPanel("Activities");
+        }
+        private void activityParticipantsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            showPanel("ActivityParticipants");
         }
 
         private void drinksToolStripMenuItem_Click(object sender, EventArgs e)
@@ -734,6 +789,77 @@ namespace SomerenUI
                 //Add
                 ActivityService activityService = new ActivityService();
                 activityService.AddActivity(activity);
+
+                //Reset everything after updating
+                showPanel("Activities");
+                txtActivityName.Text = "";
+                lblErrorActivity.Text = "";
+            }
+            catch (Exception err)
+            {
+                appLog.Source = "Application";
+                appLog.WriteEntry(err.Message);
+                lblErrorActivity.Text = err.Message;
+            }
+        }
+
+        private void btn_addParticipant_Click(object sender, EventArgs e)
+        {
+                if (txtActivityName.Text == "")
+                {
+                    lblErrorActivity.Text = "Please enter a name for the participant!";
+                    return;
+                }
+
+                try
+                {
+                    // Set up Activity object
+                    Activity activity = new Activity
+                    {
+                        Name = txtActivityName.Text,
+                        Date = dtTimeOfActivity.Value,
+                    };
+
+                    //Add
+                    ActivityService activityService = new ActivityService();
+                    activityService.AddActivity(activity);
+
+                    //Reset everything after updating
+                    showPanel("Activities");
+                    txtActivityName.Text = "";
+                    lblErrorActivity.Text = "";
+                }
+                catch (Exception err)
+                {
+                    appLog.Source = "Application";
+                    appLog.WriteEntry(err.Message);
+                    lblErrorActivity.Text = err.Message;
+                }
+        }
+
+        private void btn_UpdatePart_Click(object sender, EventArgs e)
+        {
+            if (listViewActivities.SelectedItems.Count != 1)
+            {
+                lblErrorActivity.Text = "Please select an Activity to update!";
+                return;
+            }
+
+            try
+            {
+                int activityId = int.Parse(listViewActivities.SelectedItems[0].SubItems[0].Text);
+
+                // Set up activity object
+                Activity activity = new Activity
+                {
+                    ActivityID = activityId,
+                    Name = txtActivityName.Text,
+                    Date = dtTimeOfActivity.Value,
+                };
+
+                //Update
+                ActivityService activityService = new ActivityService();
+                activityService.UpdateActivities(activity);
 
                 //Reset everything after updating
                 showPanel("Activities");

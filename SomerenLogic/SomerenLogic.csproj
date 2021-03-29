@@ -45,6 +45,7 @@
     <Compile Include="ActivityService.cs" />
     <Compile Include="BuyService.cs" />
     <Compile Include="DrinkService.cs" />
+    <Compile Include="Participants.cs" />
     <Compile Include="RoomService.cs" />
     <Compile Include="StudentService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
