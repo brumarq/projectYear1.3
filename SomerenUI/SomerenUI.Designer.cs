@@ -82,6 +82,7 @@
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.pnlActivities = new System.Windows.Forms.Panel();
+            this.lblErrorActivity = new System.Windows.Forms.Label();
             this.dtTimeOfActivity = new System.Windows.Forms.DateTimePicker();
             this.btnAddActivity = new System.Windows.Forms.Button();
             this.btnDeleteActivity = new System.Windows.Forms.Button();
@@ -92,7 +93,6 @@
             this.listViewActivities = new System.Windows.Forms.ListView();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.lblActivities = new System.Windows.Forms.Label();
-            this.lblErrorActivity = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.imgDashboard)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.pnlDashboard.SuspendLayout();
@@ -639,6 +639,15 @@
             this.pnlActivities.Size = new System.Drawing.Size(938, 466);
             this.pnlActivities.TabIndex = 10;
             // 
+            // lblErrorActivity
+            // 
+            this.lblErrorActivity.AutoSize = true;
+            this.lblErrorActivity.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorActivity.Location = new System.Drawing.Point(634, 338);
+            this.lblErrorActivity.Name = "lblErrorActivity";
+            this.lblErrorActivity.Size = new System.Drawing.Size(0, 13);
+            this.lblErrorActivity.TabIndex = 16;
+            // 
             // dtTimeOfActivity
             // 
             this.dtTimeOfActivity.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -654,7 +663,7 @@
             this.btnAddActivity.Name = "btnAddActivity";
             this.btnAddActivity.Size = new System.Drawing.Size(272, 30);
             this.btnAddActivity.TabIndex = 14;
-            this.btnAddActivity.Text = "&Add new Drink";
+            this.btnAddActivity.Text = "&Add new Activity";
             this.btnAddActivity.UseVisualStyleBackColor = true;
             this.btnAddActivity.Click += new System.EventHandler(this.btnAddActivity_Click);
             // 
@@ -739,15 +748,6 @@
             this.lblActivities.Size = new System.Drawing.Size(107, 29);
             this.lblActivities.TabIndex = 3;
             this.lblActivities.Text = "Activities";
-            // 
-            // lblErrorActivity
-            // 
-            this.lblErrorActivity.AutoSize = true;
-            this.lblErrorActivity.ForeColor = System.Drawing.Color.Red;
-            this.lblErrorActivity.Location = new System.Drawing.Point(634, 338);
-            this.lblErrorActivity.Name = "lblErrorActivity";
-            this.lblErrorActivity.Size = new System.Drawing.Size(0, 13);
-            this.lblErrorActivity.TabIndex = 16;
             // 
             // SomerenUI
             // 

@@ -11,6 +11,17 @@ namespace SomerenDAL
 {
     public class ActivityDao : BaseDao
     {
+        private void checkIfActivityExists(Activity activity)
+        {
+            string query = "SELECT activityID, name, date FROM [dbo].[Activities] WHERE name=@name;";
+            SqlParameter sqlParameters = new SqlParameter("@name", activity.Name);
+
+            DataTable dataTable = ExecuteSelectQuery(query, sqlParameters);
+            if (dataTable.Rows.Count >= 1)
+            {
+                throw new Exception("That Activity already exists. Choose another name.");
+            }
+        }
         public List<Activity> GetActivities()
         {
             string query = "SELECT activityID, name, date FROM [dbo].[Activities];";
@@ -20,6 +31,8 @@ namespace SomerenDAL
 
         public void Update(Activity activity)
         {
+            checkIfActivityExists(activity);
+
             string query = "UPDATE Activities SET name = @name, date = @date WHERE activityID=@activityID";
             SqlParameter[] sqlParameters = {
                 new SqlParameter("@activityID", activity.ActivityID),
@@ -30,11 +43,11 @@ namespace SomerenDAL
             ExecuteEditQuery(query, sqlParameters);
         }
 
-        public void Delete(int activityId)
+        public void Delete(Activity activity)
         {
             string query = "DELETE FROM Activities WHERE activityID=@activityID";
             SqlParameter[] sqlParameters = {
-                new SqlParameter("@activityID", activityId),
+                new SqlParameter("@activityID", activity.ActivityID),
             };
 
             ExecuteEditQuery(query, sqlParameters);
@@ -42,6 +55,8 @@ namespace SomerenDAL
 
         public void Add(Activity activity)
         {
+            checkIfActivityExists(activity);
+
             string query = "INSERT INTO Activities (name, date) VALUES (@name, @date) SELECT SCOPE_IDENTITY();";
             SqlParameter[] sqlParameters = {
                 new SqlParameter("@name", activity.Name),

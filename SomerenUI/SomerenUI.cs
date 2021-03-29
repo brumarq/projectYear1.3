@@ -681,7 +681,6 @@ namespace SomerenUI
 
                 //Delete
                 ActivityService activityService = new ActivityService();
-
                 //Message Box to confirm 
                 DialogResult result = MessageBox.Show("Are you sure you want to delete the selected items?", "Delete confirmation", MessageBoxButtons.YesNo);
 
@@ -689,7 +688,12 @@ namespace SomerenUI
                 {
                     foreach (ListViewItem item in listViewActivities.SelectedItems)
                     {
-                        activityService.DeleteActivity(int.Parse(item.SubItems[0].Text));
+                        Activity activity = new Activity
+                        {
+                            ActivityID = int.Parse(item.SubItems[0].Text),
+                        };
+
+                        activityService.DeleteActivity(activity);
                     }
 
                     //Reset everything after updating
