@@ -3,6 +3,8 @@ using SomerenModel;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Security.Cryptography;
+using System.Text;
 using System.Windows.Forms;
 
 namespace SomerenUI
@@ -10,6 +12,7 @@ namespace SomerenUI
     public partial class SomerenUI : Form
     {
         private EventLog appLog = new EventLog("Application"); // Initiate EventLog
+        private string loginStatusUser = "null";
 
         public SomerenUI()
         {
@@ -897,6 +900,10 @@ namespace SomerenUI
             }
         }
 
+        /* ------------------   
+         * ---Participants---
+         * ------------------ */
+
         private void btn_addParticipant_Click(object sender, EventArgs e)
         {
                 if (txtActivityName.Text == "")
@@ -965,6 +972,129 @@ namespace SomerenUI
                 appLog.Source = "Application";
                 appLog.WriteEntry(err.Message);
                 lblErrorActivity.Text = err.Message;
+            }
+        }
+
+        /* ------------------   
+         * ------Log In------
+         * ------------------ */
+
+        private void btnSignIn_Click(object sender, EventArgs e)
+        {
+            //Used to create hashed and saltes password SOURCE: https://medium.com/@mehanix/lets-talk-security-salted-password-hashing-in-c-5460be5c3aae
+            /*byte[] salt;
+            new RNGCryptoServiceProvider().GetBytes(salt = new byte[16]);
+
+            var pbkdf2 = new Rfc2898DeriveBytes("Welkom02", salt, 10000);
+
+            byte[] hash = pbkdf2.GetBytes(20);
+            byte[] hashBytes = new byte[36];
+
+            Array.Copy(salt, 0, hashBytes, 0, 16);
+            Array.Copy(hash, 0, hashBytes, 16, 20);
+
+            string savedPasswordHash = Convert.ToBase64String(hashBytes);
+
+            txtPassword.Text = savedPasswordHash;*/
+
+            string givenUsername = txtUsername.Text;
+            string givenPassword = txtPassword.Text;
+
+            try
+            {
+                UserService userService = new UserService();
+                List<User> usersList = userService.GetLoginInfo(givenUsername);
+
+                if (usersList.Count == 0)
+                {
+                    throw new Exception("Incorrect username or password!");
+                }
+                else
+                {
+                    // Checking if the given password is correct. Source: https://medium.com/@mehanix/lets-talk-security-salted-password-hashing-in-c-5460be5c3aae
+                    // Turn received hashed password into bytes
+                    byte[] hashBytes = Convert.FromBase64String(usersList[0].PasswordHashed);
+                    // Take the salt out of hashBytes and save it into the salt array
+                    byte[] salt = new byte[16];
+                    Array.Copy(hashBytes, 0, salt, 0, 16);
+
+                    // Hash the given password with the salt that was saved in the database, and save the result in the hash array
+                    Rfc2898DeriveBytes pbkdf2 = new Rfc2898DeriveBytes(givenPassword, salt, 10000);
+                    byte[] hash = pbkdf2.GetBytes(20);
+
+                    // Compare the hash from the given password with the hash from the database
+                    bool result = true;
+                    for (int i = 0; i < 20; i++)
+                    {
+                        if (hashBytes[i+16] != hash[i])
+                        {
+                            result = false;
+                        }
+                    }
+
+                    if (result)
+                    {
+                        loginStatusUser = usersList[0].AdminStatus;
+                    }
+                    else
+                    {
+                        throw new Exception("Incorrect username or password!");
+                    }
+                }
+            }
+            catch (Exception err)
+            {
+                appLog.Source = "Application";
+                appLog.WriteEntry(err.Message);
+                MessageBox.Show(err.Message);
+            }
+
+
+
+            if (loginStatusUser == "admin" || loginStatusUser == "user")
+            {
+                if (loginStatusUser == "user")
+                {
+                    lblActivityName.Hide();
+                    lblActivityDay.Hide();
+                    lblDrinksName.Hide();
+                    lblDrinksPrice.Hide();
+                    lblDrinksStock.Hide();
+
+                    txtActivityName.Hide();
+                    txtDrinkType.Hide();
+                    txtName.Hide();
+                    txtPrice.Hide();
+                    txtStock.Hide();
+
+                    btnAddActivity.Hide();
+                    btnAddDrink.Hide();
+                    btnBackDrink.Hide();
+                    btnBuyDrink.Hide();
+                    btnDeleteActivity.Hide();
+                    btnDeleteDrink.Hide();
+                    btnAddDrink.Hide();
+                    btnBackDrink.Hide();
+                    btnUpdateActivity.Hide();
+                    btnShowAddDrink.Hide();
+                    btnUpdateDrink.Hide();
+                    dtTimeOfActivity.Hide();
+                }
+                studentsToolStripMenuItem.Visible = true;
+                lecturersToolStripMenuItem.Visible = true;
+                activitiesToolStripMenuItem.Visible = true;
+                drinksToolStripMenuItem.Visible = true;
+                roomsToolStripMenuItem.Visible = true;
+                cashRegisterToolStripMenuItem.Visible = true;
+                activitySupervisorsToolStripMenuItem.Visible = true;
+                
+                lblWelcome.Show();
+                lblUsername.Hide();
+                lblPassword.Hide();
+                txtUsername.Hide();
+                txtPassword.Hide();
+                btnSignIn.Hide();
+                lblLogin.Hide();
             }
         }
     }
