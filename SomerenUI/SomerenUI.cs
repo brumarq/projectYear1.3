@@ -212,6 +212,8 @@ namespace SomerenUI
                 // show Drinks
                 pnlDrinks.Show();
 
+                //Reset error message
+                lblErrorDrink.Text = "";
                 try
                 {
                     DrinkService drinkService = new DrinkService();
@@ -272,6 +274,7 @@ namespace SomerenUI
                 pnlActivities.Hide();
                 pnlActivitySupervisors.Hide();
                 //pnlActivityParticipants.Hide();
+
                 // show Cash Register
                 pnlCashRegister.Show();
 
@@ -387,8 +390,12 @@ namespace SomerenUI
                 pnlCashRegister.Hide();
                 pnlActivitySupervisors.Hide();
                 //pnlActivityParticipants.Hide();
+
                 // show Activities
                 pnlActivities.Show();
+
+                //Reset error message
+                lblErrorActivity.Text = "";
 
                 try
                 {
@@ -555,6 +562,10 @@ namespace SomerenUI
             showPanel("ActivityParticipants");
         }
 
+        /* ------------------------------------------
+         * ----- Drinks: Bruno Coimbra Marques ------
+         * ------------------------------------------ */
+
         private void drinksToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // Reset the text boxes
@@ -582,7 +593,8 @@ namespace SomerenUI
             {
                 appLog.Source = "Application";
                 appLog.WriteEntry(err.Message);
-                throw;
+
+                lblErrorDrink.Text = $"Error: {err.Message}";
             }
         }
 
@@ -590,6 +602,25 @@ namespace SomerenUI
         {
             if (listViewDrinks.SelectedItems.Count != 1)
             {
+                lblErrorDrink.Text = "Please select the drink you want to Update!";
+                return;
+            }
+
+            if (txtName.Text == "")
+            {
+                lblErrorDrink.Text = "Please enter a name for the Drink!";
+                return;
+            }
+            
+            if (txtStock.Text == "")
+            {
+                lblErrorDrink.Text = "Please enter a number for the amount of Stock!";
+                return;
+            }
+            
+            if (txtPrice.Text == "")
+            {
+                lblErrorDrink.Text = "Please enter a price for the Drink!";
                 return;
             }
 
@@ -620,7 +651,8 @@ namespace SomerenUI
             {
                 appLog.Source = "Application";
                 appLog.WriteEntry(err.Message);
-                throw;
+                lblErrorDrink.Text = $"Error: {err.Message}";
+
             }
         }
 
@@ -628,6 +660,7 @@ namespace SomerenUI
         {
             if (listViewDrinks.SelectedItems.Count != 1)
             {
+                lblErrorDrink.Text = "Please select a Drink to delete!";
                 return;
             }
 
@@ -652,7 +685,7 @@ namespace SomerenUI
             {
                 appLog.Source = "Application";
                 appLog.WriteEntry(err.Message);
-                throw;
+                lblErrorDrink.Text = $"Error: {err.Message}";
             }
         }
 
@@ -674,12 +707,30 @@ namespace SomerenUI
             {
                 appLog.Source = "Application";
                 appLog.WriteEntry(err.Message);
-                throw;
+                lblErrorDrink.Text = $"Error: {err.Message}";
             }
         }
 
         private void btnAddDrink_Click(object sender, EventArgs e)
         {
+            if (txtName.Text == "")
+            {
+                lblErrorDrink.Text = "Please enter a name for the Drink!";
+                return;
+            }
+
+            if (txtStock.Text == "" || !int.TryParse(txtStock.Text, out _))
+            {
+                lblErrorDrink.Text = "Please enter a number for the amount of Stock!";
+                return;
+            }
+
+            if (txtPrice.Text == "" || !double.TryParse(txtPrice.Text, out double _))
+            {
+                lblErrorDrink.Text = "Please enter a price for the Drink! (i.e 5,98)";
+                return;
+            }
+
             try
             {
                 // Set up Drink object
@@ -706,7 +757,8 @@ namespace SomerenUI
             {
                 appLog.Source = "Application";
                 appLog.WriteEntry(err.Message);
-                throw;
+                lblErrorDrink.Text = $"Error: {err.Message}";
+
             }
         }
 
@@ -722,7 +774,12 @@ namespace SomerenUI
             btnBackDrink.Hide();
         }
 
-        private void btnBuyDrink_Click(object sender, EventArgs e)
+
+        /* ------------------------------------------
+         * ----- Cash Register: Daoudi Mourad -------
+         * ------------------------------------------ */
+
+        private void btnBuyDrink_Click(object sender, EventArgs e) // Daoudi Mourad
         {
             if (listViewCashierStudents.SelectedItems.Count != 1 && listViewCashierDrinks.SelectedItems.Count != 1)
             {
@@ -756,13 +813,13 @@ namespace SomerenUI
             {
                 appLog.Source = "Application";
                 appLog.WriteEntry(err.Message);
-                throw;
+                MessageBox.Show(err.Message);
             }
         }
 
-        /* ------------------   
-         * ----Activities----
-         * ------------------ */
+        /* ------------------------------------------
+         * ----Activities: Bruno Coimbra Marques ----
+         * ------------------------------------------ */
 
         private void listViewActivities_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -934,7 +991,7 @@ namespace SomerenUI
                 {
                     appLog.Source = "Application";
                     appLog.WriteEntry(err.Message);
-                    lblErrorActivity.Text = err.Message;
+                    MessageBox.Show(err.Message);
                 }
         }
 
@@ -971,17 +1028,17 @@ namespace SomerenUI
             {
                 appLog.Source = "Application";
                 appLog.WriteEntry(err.Message);
-                lblErrorActivity.Text = err.Message;
+                MessageBox.Show(err.Message);
             }
         }
 
-        /* ------------------   
-         * ------Log In------
-         * ------------------ */
+        /* ------------------------------------------
+         * ------Log In: Bruno Coimbra Marques ------
+         * ------------------------------------------ */
 
         private void btnSignIn_Click(object sender, EventArgs e)
         {
-            //Used to create hashed and saltes password SOURCE: https://medium.com/@mehanix/lets-talk-security-salted-password-hashing-in-c-5460be5c3aae
+            //Used to create hashed and salts password SOURCE: https://medium.com/@mehanix/lets-talk-security-salted-password-hashing-in-c-5460be5c3aae
             /*byte[] salt;
             new RNGCryptoServiceProvider().GetBytes(salt = new byte[16]);
 
@@ -1060,12 +1117,14 @@ namespace SomerenUI
                     lblDrinksName.Hide();
                     lblDrinksPrice.Hide();
                     lblDrinksStock.Hide();
-
+                    lblActivitySupervisorName.Hide()
+;
                     txtActivityName.Hide();
                     txtDrinkType.Hide();
                     txtName.Hide();
                     txtPrice.Hide();
                     txtStock.Hide();
+                    txtActivitySupervisorName.Hide();
 
                     btnAddActivity.Hide();
                     btnAddDrink.Hide();
@@ -1079,6 +1138,7 @@ namespace SomerenUI
                     btnShowAddDrink.Hide();
                     btnUpdateDrink.Hide();
                     dtTimeOfActivity.Hide();
+                    btnAddSupervisor.Hide();
                 }
                 studentsToolStripMenuItem.Visible = true;
                 lecturersToolStripMenuItem.Visible = true;
