@@ -1097,6 +1097,11 @@ namespace SomerenUI
                 lblLogin.Hide();
             }
         }
+
+        private void listViewActivityParticipants_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

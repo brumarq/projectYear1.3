@@ -104,6 +104,10 @@
             this.listViewActivitiesForActivitySup = new System.Windows.Forms.ListView();
             this.listViewActivityParticipants = new System.Windows.Forms.ListView();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.txtActivitySupervisorName = new System.Windows.Forms.TextBox();
+            this.lblActivitySupervisorName = new System.Windows.Forms.Label();
+            this.lblActivitySupervisor = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.imgDashboard)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.pnlDashboard.SuspendLayout();
@@ -126,7 +130,7 @@
             // imgDashboard
             // 
             this.imgDashboard.Location = new System.Drawing.Point(836, 0);
-            this.imgDashboard.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.imgDashboard.Margin = new System.Windows.Forms.Padding(4);
             this.imgDashboard.Name = "imgDashboard";
             this.imgDashboard.Size = new System.Drawing.Size(415, 332);
             this.imgDashboard.TabIndex = 0;
@@ -249,7 +253,7 @@
             this.pnlDashboard.Controls.Add(this.txtUsername);
             this.pnlDashboard.Controls.Add(this.imgDashboard);
             this.pnlDashboard.Location = new System.Drawing.Point(16, 30);
-            this.pnlDashboard.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlDashboard.Margin = new System.Windows.Forms.Padding(4);
             this.pnlDashboard.Name = "pnlDashboard";
             this.pnlDashboard.Size = new System.Drawing.Size(1251, 574);
             this.pnlDashboard.TabIndex = 2;
@@ -270,7 +274,7 @@
             // 
             this.btnSignIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSignIn.Location = new System.Drawing.Point(408, 207);
-            this.btnSignIn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSignIn.Margin = new System.Windows.Forms.Padding(4);
             this.btnSignIn.Name = "btnSignIn";
             this.btnSignIn.Size = new System.Drawing.Size(120, 34);
             this.btnSignIn.TabIndex = 6;
@@ -293,7 +297,7 @@
             // 
             this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPassword.Location = new System.Drawing.Point(183, 161);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(4);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(344, 30);
             this.txtPassword.TabIndex = 4;
@@ -324,7 +328,7 @@
             // 
             this.txtUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsername.Location = new System.Drawing.Point(183, 110);
-            this.txtUsername.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtUsername.Margin = new System.Windows.Forms.Padding(4);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(344, 30);
             this.txtUsername.TabIndex = 1;
@@ -335,7 +339,7 @@
             this.pnlStudents.Controls.Add(this.pictureBox1);
             this.pnlStudents.Controls.Add(this.lbl_Students);
             this.pnlStudents.Location = new System.Drawing.Point(16, 30);
-            this.pnlStudents.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlStudents.Margin = new System.Windows.Forms.Padding(4);
             this.pnlStudents.Name = "pnlStudents";
             this.pnlStudents.Size = new System.Drawing.Size(1251, 574);
             this.pnlStudents.TabIndex = 4;
@@ -348,7 +352,7 @@
             this.name});
             this.listViewStudents.HideSelection = false;
             this.listViewStudents.Location = new System.Drawing.Point(21, 52);
-            this.listViewStudents.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listViewStudents.Margin = new System.Windows.Forms.Padding(4);
             this.listViewStudents.Name = "listViewStudents";
             this.listViewStudents.Size = new System.Drawing.Size(1020, 377);
             this.listViewStudents.TabIndex = 5;
@@ -375,7 +379,7 @@
             this.pictureBox1.Image = global::SomerenUI.Properties.Resources.someren;
             this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
             this.pictureBox1.Location = new System.Drawing.Point(1073, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(173, 151);
             this.pictureBox1.TabIndex = 0;
@@ -398,7 +402,7 @@
             this.pnlLecturers.Controls.Add(this.pictureBox2);
             this.pnlLecturers.Controls.Add(this.lbl_Lecturers);
             this.pnlLecturers.Location = new System.Drawing.Point(7, 33);
-            this.pnlLecturers.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlLecturers.Margin = new System.Windows.Forms.Padding(4);
             this.pnlLecturers.Name = "pnlLecturers";
             this.pnlLecturers.Size = new System.Drawing.Size(1251, 574);
             this.pnlLecturers.TabIndex = 6;
@@ -407,7 +411,7 @@
             // 
             this.listViewLecturers.HideSelection = false;
             this.listViewLecturers.Location = new System.Drawing.Point(21, 52);
-            this.listViewLecturers.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listViewLecturers.Margin = new System.Windows.Forms.Padding(4);
             this.listViewLecturers.Name = "listViewLecturers";
             this.listViewLecturers.Size = new System.Drawing.Size(1020, 377);
             this.listViewLecturers.TabIndex = 5;
@@ -419,7 +423,7 @@
             this.pictureBox2.Image = global::SomerenUI.Properties.Resources.someren;
             this.pictureBox2.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.InitialImage")));
             this.pictureBox2.Location = new System.Drawing.Point(1073, 0);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(173, 151);
             this.pictureBox2.TabIndex = 0;
@@ -442,7 +446,7 @@
             this.pnlRooms.Controls.Add(this.pictureBox3);
             this.pnlRooms.Controls.Add(this.lbl_Rooms);
             this.pnlRooms.Location = new System.Drawing.Point(12, 33);
-            this.pnlRooms.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlRooms.Margin = new System.Windows.Forms.Padding(4);
             this.pnlRooms.Name = "pnlRooms";
             this.pnlRooms.Size = new System.Drawing.Size(1251, 574);
             this.pnlRooms.TabIndex = 7;
@@ -451,7 +455,7 @@
             // 
             this.listViewRooms.HideSelection = false;
             this.listViewRooms.Location = new System.Drawing.Point(21, 52);
-            this.listViewRooms.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listViewRooms.Margin = new System.Windows.Forms.Padding(4);
             this.listViewRooms.Name = "listViewRooms";
             this.listViewRooms.Size = new System.Drawing.Size(1020, 377);
             this.listViewRooms.TabIndex = 5;
@@ -463,7 +467,7 @@
             this.pictureBox3.Image = global::SomerenUI.Properties.Resources.someren;
             this.pictureBox3.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.InitialImage")));
             this.pictureBox3.Location = new System.Drawing.Point(1073, 0);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(173, 151);
             this.pictureBox3.TabIndex = 0;
@@ -499,7 +503,7 @@
             this.pnlDrinks.Controls.Add(this.pictureBox4);
             this.pnlDrinks.Controls.Add(this.lbl_Drinks);
             this.pnlDrinks.Location = new System.Drawing.Point(20, 30);
-            this.pnlDrinks.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlDrinks.Margin = new System.Windows.Forms.Padding(4);
             this.pnlDrinks.Name = "pnlDrinks";
             this.pnlDrinks.Size = new System.Drawing.Size(1251, 574);
             this.pnlDrinks.TabIndex = 8;
@@ -512,7 +516,7 @@
             "non-alcoholic",
             "alcoholic"});
             this.txtDrinkType.Location = new System.Drawing.Point(879, 345);
-            this.txtDrinkType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDrinkType.Margin = new System.Windows.Forms.Padding(4);
             this.txtDrinkType.Name = "txtDrinkType";
             this.txtDrinkType.Size = new System.Drawing.Size(297, 33);
             this.txtDrinkType.TabIndex = 19;
@@ -523,7 +527,7 @@
             // 
             this.btnAddDrink.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddDrink.Location = new System.Drawing.Point(988, 400);
-            this.btnAddDrink.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAddDrink.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddDrink.Name = "btnAddDrink";
             this.btnAddDrink.Size = new System.Drawing.Size(137, 37);
             this.btnAddDrink.TabIndex = 18;
@@ -536,7 +540,7 @@
             // 
             this.btnBackDrink.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBackDrink.Location = new System.Drawing.Point(808, 400);
-            this.btnBackDrink.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnBackDrink.Margin = new System.Windows.Forms.Padding(4);
             this.btnBackDrink.Name = "btnBackDrink";
             this.btnBackDrink.Size = new System.Drawing.Size(137, 37);
             this.btnBackDrink.TabIndex = 17;
@@ -561,7 +565,7 @@
             // 
             this.btnShowAddDrink.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnShowAddDrink.Location = new System.Drawing.Point(755, 518);
-            this.btnShowAddDrink.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnShowAddDrink.Margin = new System.Windows.Forms.Padding(4);
             this.btnShowAddDrink.Name = "btnShowAddDrink";
             this.btnShowAddDrink.Size = new System.Drawing.Size(421, 37);
             this.btnShowAddDrink.TabIndex = 14;
@@ -573,7 +577,7 @@
             // 
             this.btnDeleteDrink.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeleteDrink.Location = new System.Drawing.Point(988, 356);
-            this.btnDeleteDrink.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDeleteDrink.Margin = new System.Windows.Forms.Padding(4);
             this.btnDeleteDrink.Name = "btnDeleteDrink";
             this.btnDeleteDrink.Size = new System.Drawing.Size(137, 37);
             this.btnDeleteDrink.TabIndex = 13;
@@ -585,7 +589,7 @@
             // 
             this.btnUpdateDrink.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdateDrink.Location = new System.Drawing.Point(808, 356);
-            this.btnUpdateDrink.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnUpdateDrink.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpdateDrink.Name = "btnUpdateDrink";
             this.btnUpdateDrink.Size = new System.Drawing.Size(137, 37);
             this.btnUpdateDrink.TabIndex = 12;
@@ -630,7 +634,7 @@
             // 
             this.txtPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPrice.Location = new System.Drawing.Point(879, 300);
-            this.txtPrice.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPrice.Margin = new System.Windows.Forms.Padding(4);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(296, 30);
             this.txtPrice.TabIndex = 8;
@@ -639,7 +643,7 @@
             // 
             this.txtStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtStock.Location = new System.Drawing.Point(879, 252);
-            this.txtStock.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtStock.Margin = new System.Windows.Forms.Padding(4);
             this.txtStock.Name = "txtStock";
             this.txtStock.Size = new System.Drawing.Size(296, 30);
             this.txtStock.TabIndex = 7;
@@ -648,7 +652,7 @@
             // 
             this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtName.Location = new System.Drawing.Point(879, 203);
-            this.txtName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtName.Margin = new System.Windows.Forms.Padding(4);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(296, 30);
             this.txtName.TabIndex = 6;
@@ -657,7 +661,7 @@
             // 
             this.listViewDrinks.HideSelection = false;
             this.listViewDrinks.Location = new System.Drawing.Point(21, 52);
-            this.listViewDrinks.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listViewDrinks.Margin = new System.Windows.Forms.Padding(4);
             this.listViewDrinks.Name = "listViewDrinks";
             this.listViewDrinks.Size = new System.Drawing.Size(668, 502);
             this.listViewDrinks.TabIndex = 5;
@@ -670,7 +674,7 @@
             this.pictureBox4.Image = global::SomerenUI.Properties.Resources.someren;
             this.pictureBox4.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox4.InitialImage")));
             this.pictureBox4.Location = new System.Drawing.Point(1073, 0);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(173, 151);
             this.pictureBox4.TabIndex = 0;
@@ -695,7 +699,7 @@
             this.pnlCashRegister.Controls.Add(this.pictureBox5);
             this.pnlCashRegister.Controls.Add(this.label4);
             this.pnlCashRegister.Location = new System.Drawing.Point(8, 30);
-            this.pnlCashRegister.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlCashRegister.Margin = new System.Windows.Forms.Padding(4);
             this.pnlCashRegister.Name = "pnlCashRegister";
             this.pnlCashRegister.Size = new System.Drawing.Size(1251, 574);
             this.pnlCashRegister.TabIndex = 9;
@@ -716,7 +720,7 @@
             this.listViewCashierDrinks.FullRowSelect = true;
             this.listViewCashierDrinks.HideSelection = false;
             this.listViewCashierDrinks.Location = new System.Drawing.Point(508, 52);
-            this.listViewCashierDrinks.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listViewCashierDrinks.Margin = new System.Windows.Forms.Padding(4);
             this.listViewCashierDrinks.Name = "listViewCashierDrinks";
             this.listViewCashierDrinks.Size = new System.Drawing.Size(495, 377);
             this.listViewCashierDrinks.TabIndex = 6;
@@ -728,7 +732,7 @@
             this.listViewCashierStudents.FullRowSelect = true;
             this.listViewCashierStudents.HideSelection = false;
             this.listViewCashierStudents.Location = new System.Drawing.Point(21, 52);
-            this.listViewCashierStudents.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listViewCashierStudents.Margin = new System.Windows.Forms.Padding(4);
             this.listViewCashierStudents.Name = "listViewCashierStudents";
             this.listViewCashierStudents.Size = new System.Drawing.Size(477, 377);
             this.listViewCashierStudents.TabIndex = 5;
@@ -740,7 +744,7 @@
             this.pictureBox5.Image = global::SomerenUI.Properties.Resources.someren;
             this.pictureBox5.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox5.InitialImage")));
             this.pictureBox5.Location = new System.Drawing.Point(1073, 0);
-            this.pictureBox5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(173, 151);
             this.pictureBox5.TabIndex = 0;
@@ -770,10 +774,10 @@
             this.pnlActivities.Controls.Add(this.listViewActivities);
             this.pnlActivities.Controls.Add(this.pictureBox6);
             this.pnlActivities.Controls.Add(this.lblActivities);
-            this.pnlActivities.Location = new System.Drawing.Point(0, 32);
-            this.pnlActivities.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlActivities.Location = new System.Drawing.Point(0, 30);
+            this.pnlActivities.Margin = new System.Windows.Forms.Padding(4);
             this.pnlActivities.Name = "pnlActivities";
-            this.pnlActivities.Size = new System.Drawing.Size(1251, 512);
+            this.pnlActivities.Size = new System.Drawing.Size(1251, 482);
             this.pnlActivities.TabIndex = 10;
             // 
             // lblErrorActivity
@@ -790,7 +794,7 @@
             // 
             this.dtTimeOfActivity.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtTimeOfActivity.Location = new System.Drawing.Point(853, 256);
-            this.dtTimeOfActivity.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtTimeOfActivity.Margin = new System.Windows.Forms.Padding(4);
             this.dtTimeOfActivity.Name = "dtTimeOfActivity";
             this.dtTimeOfActivity.Size = new System.Drawing.Size(353, 30);
             this.dtTimeOfActivity.TabIndex = 15;
@@ -799,7 +803,7 @@
             // 
             this.btnAddActivity.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddActivity.Location = new System.Drawing.Point(845, 356);
-            this.btnAddActivity.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAddActivity.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddActivity.Name = "btnAddActivity";
             this.btnAddActivity.Size = new System.Drawing.Size(363, 37);
             this.btnAddActivity.TabIndex = 14;
@@ -811,7 +815,7 @@
             // 
             this.btnDeleteActivity.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeleteActivity.Location = new System.Drawing.Point(1025, 311);
-            this.btnDeleteActivity.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDeleteActivity.Margin = new System.Windows.Forms.Padding(4);
             this.btnDeleteActivity.Name = "btnDeleteActivity";
             this.btnDeleteActivity.Size = new System.Drawing.Size(183, 37);
             this.btnDeleteActivity.TabIndex = 13;
@@ -823,7 +827,7 @@
             // 
             this.btnUpdateActivity.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdateActivity.Location = new System.Drawing.Point(845, 311);
-            this.btnUpdateActivity.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnUpdateActivity.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpdateActivity.Name = "btnUpdateActivity";
             this.btnUpdateActivity.Size = new System.Drawing.Size(172, 37);
             this.btnUpdateActivity.TabIndex = 12;
@@ -857,7 +861,7 @@
             // 
             this.txtActivityName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtActivityName.Location = new System.Drawing.Point(853, 203);
-            this.txtActivityName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtActivityName.Margin = new System.Windows.Forms.Padding(4);
             this.txtActivityName.Name = "txtActivityName";
             this.txtActivityName.Size = new System.Drawing.Size(353, 30);
             this.txtActivityName.TabIndex = 6;
@@ -867,7 +871,7 @@
             this.listViewActivities.FullRowSelect = true;
             this.listViewActivities.HideSelection = false;
             this.listViewActivities.Location = new System.Drawing.Point(21, 52);
-            this.listViewActivities.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listViewActivities.Margin = new System.Windows.Forms.Padding(4);
             this.listViewActivities.Name = "listViewActivities";
             this.listViewActivities.Size = new System.Drawing.Size(668, 502);
             this.listViewActivities.TabIndex = 5;
@@ -880,7 +884,7 @@
             this.pictureBox6.Image = global::SomerenUI.Properties.Resources.someren;
             this.pictureBox6.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox6.InitialImage")));
             this.pictureBox6.Location = new System.Drawing.Point(1073, 0);
-            this.pictureBox6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox6.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(173, 151);
             this.pictureBox6.TabIndex = 0;
@@ -899,23 +903,27 @@
             // 
             // pnlActivitySupervisors
             // 
+            this.pnlActivitySupervisors.Controls.Add(this.lblActivitySupervisor);
+            this.pnlActivitySupervisors.Controls.Add(this.lblActivitySupervisorName);
+            this.pnlActivitySupervisors.Controls.Add(this.txtActivitySupervisorName);
+            this.pnlActivitySupervisors.Controls.Add(this.button1);
             this.pnlActivitySupervisors.Controls.Add(this.listViewActivitiesForActivitySup);
             this.pnlActivitySupervisors.Controls.Add(this.listViewActivityParticipants);
             this.pnlActivitySupervisors.Controls.Add(this.pictureBox7);
-            this.pnlActivitySupervisors.Location = new System.Drawing.Point(0, 35);
+            this.pnlActivitySupervisors.Location = new System.Drawing.Point(0, 33);
             this.pnlActivitySupervisors.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlActivitySupervisors.Name = "pnlActivitySupervisors";
-            this.pnlActivitySupervisors.Size = new System.Drawing.Size(1259, 567);
+            this.pnlActivitySupervisors.Size = new System.Drawing.Size(1259, 569);
             this.pnlActivitySupervisors.TabIndex = 17;
             // 
             // listViewActivitiesForActivitySup
             // 
             this.listViewActivitiesForActivitySup.FullRowSelect = true;
             this.listViewActivitiesForActivitySup.HideSelection = false;
-            this.listViewActivitiesForActivitySup.Location = new System.Drawing.Point(5, 4);
-            this.listViewActivitiesForActivitySup.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listViewActivitiesForActivitySup.Location = new System.Drawing.Point(5, 41);
+            this.listViewActivitiesForActivitySup.Margin = new System.Windows.Forms.Padding(4);
             this.listViewActivitiesForActivitySup.Name = "listViewActivitiesForActivitySup";
-            this.listViewActivitiesForActivitySup.Size = new System.Drawing.Size(500, 437);
+            this.listViewActivitiesForActivitySup.Size = new System.Drawing.Size(428, 405);
             this.listViewActivitiesForActivitySup.TabIndex = 7;
             this.listViewActivitiesForActivitySup.UseCompatibleStateImageBehavior = false;
             this.listViewActivitiesForActivitySup.View = System.Windows.Forms.View.Details;
@@ -924,24 +932,67 @@
             // 
             this.listViewActivityParticipants.FullRowSelect = true;
             this.listViewActivityParticipants.HideSelection = false;
-            this.listViewActivityParticipants.Location = new System.Drawing.Point(541, 7);
-            this.listViewActivityParticipants.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listViewActivityParticipants.Location = new System.Drawing.Point(443, 41);
+            this.listViewActivityParticipants.Margin = new System.Windows.Forms.Padding(4);
             this.listViewActivityParticipants.Name = "listViewActivityParticipants";
-            this.listViewActivityParticipants.Size = new System.Drawing.Size(529, 434);
+            this.listViewActivityParticipants.Size = new System.Drawing.Size(433, 405);
             this.listViewActivityParticipants.TabIndex = 6;
             this.listViewActivityParticipants.UseCompatibleStateImageBehavior = false;
             this.listViewActivityParticipants.View = System.Windows.Forms.View.Details;
+            this.listViewActivityParticipants.SelectedIndexChanged += new System.EventHandler(this.listViewActivityParticipants_SelectedIndexChanged);
             // 
             // pictureBox7
             // 
             this.pictureBox7.Image = global::SomerenUI.Properties.Resources.someren;
             this.pictureBox7.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox7.InitialImage")));
             this.pictureBox7.Location = new System.Drawing.Point(1080, 1);
-            this.pictureBox7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox7.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(173, 151);
             this.pictureBox7.TabIndex = 1;
             this.pictureBox7.TabStop = false;
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(882, 402);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(363, 37);
+            this.button1.TabIndex = 15;
+            this.button1.Text = "&Add new Supervisor";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // txtActivitySupervisorName
+            // 
+            this.txtActivitySupervisorName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtActivitySupervisorName.Location = new System.Drawing.Point(979, 215);
+            this.txtActivitySupervisorName.Margin = new System.Windows.Forms.Padding(4);
+            this.txtActivitySupervisorName.Name = "txtActivitySupervisorName";
+            this.txtActivitySupervisorName.Size = new System.Drawing.Size(246, 30);
+            this.txtActivitySupervisorName.TabIndex = 18;
+            // 
+            // lblActivitySupervisorName
+            // 
+            this.lblActivitySupervisorName.AutoSize = true;
+            this.lblActivitySupervisorName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblActivitySupervisorName.Location = new System.Drawing.Point(894, 213);
+            this.lblActivitySupervisorName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblActivitySupervisorName.Name = "lblActivitySupervisorName";
+            this.lblActivitySupervisorName.Size = new System.Drawing.Size(64, 25);
+            this.lblActivitySupervisorName.TabIndex = 19;
+            this.lblActivitySupervisorName.Text = "Name";
+            // 
+            // lblActivitySupervisor
+            // 
+            this.lblActivitySupervisor.AutoSize = true;
+            this.lblActivitySupervisor.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblActivitySupervisor.Location = new System.Drawing.Point(10, 4);
+            this.lblActivitySupervisor.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblActivitySupervisor.Name = "lblActivitySupervisor";
+            this.lblActivitySupervisor.Size = new System.Drawing.Size(272, 33);
+            this.lblActivitySupervisor.TabIndex = 20;
+            this.lblActivitySupervisor.Text = "Activity Supervisors";
             // 
             // SomerenUI
             // 
@@ -949,8 +1000,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1283, 622);
             this.Controls.Add(this.pnlActivitySupervisors);
-            this.Controls.Add(this.pnlDrinks);
             this.Controls.Add(this.pnlActivities);
+            this.Controls.Add(this.pnlDrinks);
             this.Controls.Add(this.pnlDashboard);
             this.Controls.Add(this.pnlLecturers);
             this.Controls.Add(this.pnlCashRegister);
@@ -959,7 +1010,7 @@
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "SomerenUI";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.Text = "SomerenApp";
@@ -988,6 +1039,7 @@
             this.pnlActivities.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.pnlActivitySupervisors.ResumeLayout(false);
+            this.pnlActivitySupervisors.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -1071,5 +1123,9 @@
         private System.Windows.Forms.Label lblLogin;
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.Label lblWelcome;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label lblActivitySupervisorName;
+        private System.Windows.Forms.TextBox txtActivitySupervisorName;
+        private System.Windows.Forms.Label lblActivitySupervisor;
     }
 }
